@@ -12,22 +12,22 @@ M.launch=function()
 		M.spells={
 			'conjure baked goods':{
 				name:loc("Conjure Baked Goods"),
-				desc:loc("Summon half an hour worth of your CpS, capped at %1% of your cookies owned.",15),
-				failDesc:loc("Trigger a %1-minute clot and lose %1 minutes of CpS.",15),
+				desc:loc("Summon half an hour worth of your CpS, capped at %1% of your cookies owned.",30)+(EN?'<q>You must be tired of hearing the word "cookie"</q>':''),
+				failDesc:loc("Trigger a 2 minute clot and lose 30 minutes of CpS.",1),
 				icon:[21,11],
 				costMin:2,
 				costPercent:0.4,
 				win:function()
 				{
-					var val=Math.max(7,Math.min(Game.cookies*0.15,Game.cookiesPs*60*30));
+					var val=Math.max(7,Math.min(Game.cookies*0.3,Game.cookiesPs*60*30));
 					Game.Earn(val);
 					Game.Notify(loc("Conjure Baked Goods")+(EN?'!':''),loc("You magic <b>%1</b> out of thin air.",loc("%1 cookie",LBeautify(val))),[21,11],6);
 					Game.Popup('<div style="font-size:80%;">'+loc("+%1!",loc("%1 cookie",LBeautify(val)))+'</div>',Game.mouseX,Game.mouseY);
 				},
 				fail:function()
 				{
-					var buff=Game.gainBuff('clot',60*15,0.5);
-					var val=Math.min(Game.cookies*0.15,Game.cookiesPs*60*15)+13;
+					var buff=Game.gainBuff('clot',60*2,0.5);
+					var val=Math.min(Game.cookies*0.15,Game.cookiesPs*60*30)+13;
 					val=Math.min(Game.cookies,val);
 					Game.Spend(val);
 					Game.Notify(buff.name,buff.desc,buff.icon,6);
@@ -36,11 +36,11 @@ M.launch=function()
 			},
 			'hand of fate':{
 				name:loc("Force the Hand of Fate"),
-				desc:loc("Summon a random golden cookie. Each existing golden cookie makes this spell +%1% more likely to backfire.",15),
+				desc:loc("Summon a random golden cookie. Each existing golden cookie makes this spell +%1% more likely to backfire.",15)+(EN?'<q>Even the gods of fate have to obey your demands</q>':''),
 				failDesc:loc("Summon an unlucky wrath cookie."),
 				icon:[22,11],
-				costMin:10,
-				costPercent:0.6,
+				costMin:12,
+				costPercent:0.7,
 				failFunc:function(fail)
 				{
 					return fail+0.15*Game.shimmerTypes['golden'].n;
@@ -77,10 +77,10 @@ M.launch=function()
 			},
 			'stretch time':{
 				name:loc("Stretch Time"),
-				desc:loc("All active buffs gain %1% more time (up to %2 more minutes).",[10,5]),
-				failDesc:loc("All active buffs are shortened by %1% (up to %2 minutes shorter).",[20,10]),
+				desc:loc("All active buffs gain %1% more time (up to %2 more minutes).",[20,5])+(EN?'<q>Now we know why all the wizards are so old...</q>':''),
+				failDesc:loc("All active buffs are shortened by %1% (up to %2 minutes shorter).",[30,10]),
 				icon:[23,11],
-				costMin:8,
+				costMin:9,
 				costPercent:0.2,
 				win:function()
 				{
@@ -88,7 +88,7 @@ M.launch=function()
 					for (var i in Game.buffs)
 					{
 						var me=Game.buffs[i];
-						var gain=Math.min(Game.fps*60*5,me.maxTime*0.1);
+						var gain=Math.min(Game.fps*60*5,me.maxTime*0.2);
 						me.maxTime+=gain;
 						me.time+=gain;
 						changed++;
@@ -102,7 +102,7 @@ M.launch=function()
 					for (var i in Game.buffs)
 					{
 						var me=Game.buffs[i];
-						var loss=Math.min(Game.fps*60*10,me.time*0.2);
+						var loss=Math.min(Game.fps*60*10,me.time*0.3);
 						me.time-=loss;
 						me.time=Math.max(me.time,0);
 						changed++;
@@ -113,11 +113,11 @@ M.launch=function()
 			},
 			'spontaneous edifice':{
 				name:loc("Spontaneous Edifice"),
-				desc:loc("The spell picks a random building you could afford if you had twice your current cookies, and gives it to you for free. The building selected must be under %1, and cannot be your most-built one (unless it is your only one).",400),
+				desc:loc("The spell picks a random building you could afford if you had twice your current cookies, and gives it to you for free. The building selected must be under %1, and cannot be your most-built one (unless it is your only one).",500)+(EN?'<q>As you look around, you see a large building errupt from the earth. Perfect.</q>':''),
 				failDesc:loc("Lose a random building."),
 				icon:[24,11],
-				costMin:20,
-				costPercent:0.75,
+				costMin:16,
+				costPercent:0.3,
 				win:function()
 				{
 					var buildings=[];
@@ -129,7 +129,7 @@ M.launch=function()
 						if (Game.Objects[i].amount>0) n++;
 					}
 					for (var i in Game.Objects)
-					{if ((Game.Objects[i].amount<max || n==1) && Game.Objects[i].getPrice()<=Game.cookies*2 && Game.Objects[i].amount<400) buildings.push(Game.Objects[i]);}
+					{if ((Game.Objects[i].amount<max || n==1) && Game.Objects[i].getPrice()<=Game.cookies*2 && Game.Objects[i].amount<500) buildings.push(Game.Objects[i]);}
 					if (buildings.length==0){Game.Popup('<div style="font-size:80%;">'+loc("No buildings to improve!")+'</div>',Game.mouseX,Game.mouseY);return -1;}
 					var building=choose(buildings);
 					building.buyFree(1);
@@ -148,47 +148,48 @@ M.launch=function()
 			},
 			'haggler\'s charm':{
 				name:loc("Haggler's Charm"),
-				desc:loc("Upgrades are %1% cheaper for 1 minute.",2),
-				failDesc:loc("Upgrades are %1% more expensive for an hour.",2)+(EN?'<q>What\'s that spell? Loadsamoney!</q>':''),
+				desc:loc("Upgrades are %1% cheaper for 1 minute.",5),
+				failDesc:loc("Upgrades are %1% more expensive for an hour.",5)+(EN?'<q>What\'s that spell? Loadsamoney!</q>':''),
 				icon:[25,11],
 				costMin:10,
 				costPercent:0.1,
 				win:function()
 				{
 					Game.killBuff('Haggler\'s misery');
-					var buff=Game.gainBuff('haggler luck',60,2);
+					var buff=Game.gainBuff('haggler luck',60,5);
 					Game.Popup('<div style="font-size:80%;">'+loc("Upgrades are cheaper!")+'</div>',Game.mouseX,Game.mouseY);
 				},
 				fail:function()
 				{
 					Game.killBuff('Haggler\'s luck');
-					var buff=Game.gainBuff('haggler misery',60*60,2);
+					var buff=Game.gainBuff('haggler misery',60*60,5);
 					Game.Popup('<div style="font-size:80%;">'+loc("Backfire!")+'<br>'+loc("Upgrades are pricier!")+'</div>',Game.mouseX,Game.mouseY);
 				},
 			},
 			'summon crafty pixies':{
 				name:loc("Summon Crafty Pixies"),
-				desc:loc("Buildings are %1% cheaper for 1 minute.",2),
-				failDesc:loc("Buildings are %1% more expensive for an hour.",2),
+				desc:loc("Buildings are %1% cheaper for 1 minute.",5)+(EN?'<q>These pixies are very crafty, with a capital V</q>':''),
+				failDesc:loc("Buildings are %1% more expensive for an hour.",5),
 				icon:[26,11],
 				costMin:10,
 				costPercent:0.2,
 				win:function()
 				{
 					Game.killBuff('Nasty goblins');
-					var buff=Game.gainBuff('pixie luck',60,2);
+					var buff=Game.gainBuff('pixie luck',60,5);
 					Game.Popup('<div style="font-size:80%;">'+loc("Crafty pixies")+'<br>'+loc("Buildings are cheaper!")+'</div>',Game.mouseX,Game.mouseY);
 				},
 				fail:function()
 				{
 					Game.killBuff('Crafty pixies');
-					var buff=Game.gainBuff('pixie misery',60*60,2);
+					var buff=Game.gainBuff('pixie misery',60*60,5);
 					Game.Popup('<div style="font-size:80%;">'+loc("Backfire!")+'<br>'+loc("Nasty goblins")+'<br>'+loc("Buildings are pricier!")+'</div>',Game.mouseX,Game.mouseY);
 				},
 			},
 			'gambler\'s fever dream':{
 				name:loc("Gambler's Fever Dream"),
-				desc:loc("Cast a random spell at half the magic cost, with twice the chance of backfiring."),
+				desc:loc("Cast a random spell at half the magic cost")+(EN?'<q>Just one more...</q>':''),
+				failDesc:loc("The spell has twice the chance of backfiring.",5),
 				icon:[27,11],
 				costMin:3,
 				costPercent:0.05,
@@ -217,11 +218,11 @@ M.launch=function()
 			},
 			'resurrect abomination':{
 				name:loc("Resurrect Abomination"),
-				desc:loc("Instantly summon a wrinkler if conditions are fulfilled."),
+				desc:loc("Instantly summon a wrinkler if conditions are fulfilled.")+(EN?'<q>Rise...  RISSSEE!!</q>':''),
 				failDesc:loc("Pop one of your wrinklers."),
 				icon:[28,11],
-				costMin:20,
-				costPercent:0.1,
+				costMin:30,
+				costPercent:0.01,
 				win:function()
 				{
 					var out=Game.SpawnWrinkler();
