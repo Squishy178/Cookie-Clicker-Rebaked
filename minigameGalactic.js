@@ -31,5 +31,9 @@ M.launch=function()
 		
 		'#grimoireInfo{text-align:center;font-size:11px;margin-top:12px;color:rgba(255,255,255,0.75);text-shadow:-1px 1px 0px #000;}'+
 		'</style>'; 
+	M.dragonBoostTooltip=function()
+		{
+				return '<div style="width:280px;padding:8px;text-align:center;" id="tooltipDragonBoost"><b>'+loc("Supreme Intellect")+'</b><div class="line"></div>'+loc("Test! If this works that is fire bro",10*Game.auraMult('Supreme Intellect'))+'</div>';
+		}
   }
 }
