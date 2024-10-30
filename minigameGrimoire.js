@@ -12,8 +12,8 @@ M.launch=function()
 		M.spells={
 			'conjure baked goods':{
 				name:loc("Conjure Baked Goods"),
-				desc:loc("Summon half an hour worth of your CpS, capped at %1% of your cookies owned.",30)+(EN?'<q>You must be tired of hearing the word "cookie"</q>':''),
-				failDesc:loc("Trigger a 2 minute clot and lose 30 minutes of CpS.",1),
+				desc:loc("Summon half an hour worth of your CpS, capped at %1% of your cookies owned.",30),
+				failDesc:loc("Trigger a 2 minute clot and lose 30 minutes of CpS.",1)+(EN?'<q>You must be tired of hearing the word "cookie"</q>':''),
 				icon:[21,11],
 				costMin:2,
 				costPercent:0.4,
@@ -36,8 +36,8 @@ M.launch=function()
 			},
 			'hand of fate':{
 				name:loc("Force the Hand of Fate"),
-				desc:loc("Summon a random golden cookie. Each existing golden cookie makes this spell +%1% more likely to backfire.",15)+(EN?'<q>Even the gods of fate have to obey your demands</q>':''),
-				failDesc:loc("Summon an unlucky wrath cookie."),
+				desc:loc("Summon a random golden cookie. Each existing golden cookie makes this spell +%1% more likely to backfire.",15),
+				failDesc:loc("Summon an unlucky wrath cookie.")+(EN?'<q>Even the gods of fate have to obey your demands</q>':''),
 				icon:[22,11],
 				costMin:12,
 				costPercent:0.7,
@@ -77,8 +77,8 @@ M.launch=function()
 			},
 			'stretch time':{
 				name:loc("Stretch Time"),
-				desc:loc("All active buffs gain %1% more time (up to %2 more minutes).",[20,5])+(EN?'<q>Now we know why all the wizards are so old...</q>':''),
-				failDesc:loc("All active buffs are shortened by %1% (up to %2 minutes shorter).",[30,10]),
+				desc:loc("All active buffs gain %1% more time (up to %2 more minutes).",[20,5]),
+				failDesc:loc("All active buffs are shortened by %1% (up to %2 minutes shorter).",[30,10])+(EN?'<q>Now we know why all the wizards are so old...</q>':''),
 				icon:[23,11],
 				costMin:9,
 				costPercent:0.2,
@@ -113,8 +113,8 @@ M.launch=function()
 			},
 			'spontaneous edifice':{
 				name:loc("Spontaneous Edifice"),
-				desc:loc("The spell picks a random building you could afford if you had twice your current cookies, and gives it to you for free. The building selected must be under %1, and cannot be your most-built one (unless it is your only one).",500)+(EN?'<q>As you look around, you see a large building errupt from the earth. Perfect.</q>':''),
-				failDesc:loc("Lose a random building."),
+				desc:loc("The spell picks a random building you could afford if you had twice your current cookies, and gives it to you for free. The building selected must be under %1, and cannot be your most-built one (unless it is your only one).",500),
+				failDesc:loc("Lose a random building.")+(EN?'<q>As you look around, you see a large building errupt from the earth. Perfect.</q>':''),
 				icon:[24,11],
 				costMin:16,
 				costPercent:0.3,
@@ -168,8 +168,8 @@ M.launch=function()
 			},
 			'summon crafty pixies':{
 				name:loc("Summon Crafty Pixies"),
-				desc:loc("Buildings are %1% cheaper for 1 minute.",5)+(EN?'<q>These pixies are very crafty, with a capital V</q>':''),
-				failDesc:loc("Buildings are %1% more expensive for an hour.",5),
+				desc:loc("Buildings are %1% cheaper for 1 minute.",5),
+				failDesc:loc("Buildings are %1% more expensive for an hour.",5)+(EN?'<q>These pixies are very crafty, with a capital V</q>':''),
 				icon:[26,11],
 				costMin:10,
 				costPercent:0.2,
@@ -188,8 +188,8 @@ M.launch=function()
 			},
 			'gambler\'s fever dream':{
 				name:loc("Gambler's Fever Dream"),
-				desc:loc("Cast a random spell at half the magic cost")+(EN?'<q>Just one more...</q>':''),
-				failDesc:loc("The spell has twice the chance of backfiring.",5),
+				desc:loc("Cast a random spell at half the magic cost"),
+				failDesc:loc("The spell has twice the chance of backfiring.",5)+(EN?'<q>Just one more...</q>':''),
 				icon:[27,11],
 				costMin:3,
 				costPercent:0.05,
@@ -218,8 +218,8 @@ M.launch=function()
 			},
 			'resurrect abomination':{
 				name:loc("Resurrect Abomination"),
-				desc:loc("Instantly summon a wrinkler if conditions are fulfilled.")+(EN?'<q>Rise...  RISSSEE!!</q>':''),
-				failDesc:loc("Pop one of your wrinklers."),
+				desc:loc("Instantly summon a wrinkler if conditions are fulfilled."),
+				failDesc:loc("Pop one of your wrinklers.")+(EN?'<q>Rise...  RISSSEE!!</q>':''),
 				icon:[28,11],
 				costMin:30,
 				costPercent:0.01,
@@ -239,7 +239,7 @@ M.launch=function()
 			'diminish ineptitude':{
 				name:loc("Diminish Ineptitude"),
 				desc:loc("Spells backfire %1 times less for the next %2 minutes.",[10,5]),
-				failDesc:loc("Spells backfire %1 times more for the next %2 minutes.",[5,10]),
+				failDesc:loc("Spells backfire %1 times more for the next %2 minutes.",[5,10])+(EN?'<q>For those who like to play it safe</q>':''),
 				icon:[29,11],
 				costMin:5,
 				costPercent:0.2,
