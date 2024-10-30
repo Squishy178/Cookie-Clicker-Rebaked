@@ -8879,8 +8879,8 @@ Game.Launch=function()
 			if (this.amount>=Game.SpecialGrandmaUnlock && Game.Objects['Grandma'].amount>0) Game.Unlock(this.grandma.name);
 		});
 		Game.last.displayName='<span style="font-size:90%;letter-spacing:-1px;position:relative;bottom:2px;">Shipment</span>';//shrink
-		Game.last.minigameUrl='minigameGalactic.js';
-		Game.last.minigameName=loc("Galactic");
+		// Game.last.minigameUrl='minigameGalactic.js'; Hopefully this will be finished soon :)
+		// Game.last.minigameName=loc("Galactic");
 		
 		new Game.Object('Alchemy lab','alchemy lab|alchemy labs|transmuted|[X] primordial element mastered|[X] primordial elements mastered','Turns gold into cookies!',10,6,{base:'alchemylab',xV:16,yV:16,w:64,rows:2,x:0,y:16},200000,function(me){
 			var mult=1;
