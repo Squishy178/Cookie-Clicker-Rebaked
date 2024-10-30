@@ -1354,6 +1354,17 @@ Game.Launch=function()
 	Game.updateLog+=
 	
 	'</div><div class="subsection update">'+
+	'<div class="title">30/10/2024 - Rebaked, 2.053</div>'+
+	'<div class="listing">&bull; This marks the Start of Cookie clicker - Rebaked! </div>'+
+	'<div class="listing">&bull; Rebalanced Grimoire Spells, and added descriptions for each of them</div>'+
+	'<div class="listing">&bull; Rebalanced Pantheon gods</div>'+
+	'<div class="listing">&bull; Garden now gives half the plant cost upon harvesting at maturity, but only works with plants that do not spread, and has to be harvested manually</div>'+
+	'<div class="listing">&bull; Started work on The Minigame for MINES, The Cookie Caverns! This will hopefully come soon enough</div>'+
+	'<div class="listing">&bull; Allowed recieving gifts to be unlocked easier, plus increased the maximum amount of cookies to give</div>'+
+	(App?'<div class="listing">&bull; I am just learning Javascript, so the first few updates will be small. Thanks for understanding!</div>':'')+
+	'<div class="listing">&bull; Cookie Clicker turns 11 years old this year. Thank you for clicking cookies with us! Wait was this message not in the previous patch?</div>'+
+	
+	'</div><div class="subsection update">'+
 	'<div class="title">07/05/2023 - often imitated, never duplicated</div>'+
 	'<div class="listing">&bull; added the final, 20th building</div>'+
 	'<div class="listing" style="font-size:80%;margin-left:20px;">-currently, no more buildings are planned beyond this one; there are still many more updates to come, but future patches will focus on adding minigames to the existing buildings along with other features!</div>'+
@@ -4422,6 +4433,12 @@ Game.Launch=function()
 				if (godLvl==1) Game.lumpRipeAge-=hour;
 				else if (godLvl==2) Game.lumpRipeAge-=(hour/3)*2;
 				else if (godLvl==3) Game.lumpRipeAge-=(hour/3);
+			}
+			else{
+				var godLvl=Game.hasGod('order');
+				if (godLvl==1) Game.lumpRipeAge+=hour;
+				else if (godLvl==2) Game.lumpRipeAge+=(hour/3)*2;
+				else if (godLvl==3) Game.lumpRipeAge+=(hour/3);
 			}
 			//if (Game.hasAura('Dragon\'s Curve')) {Game.lumpMatureAge/=1.05;Game.lumpRipeAge/=1.05;}
 			Game.lumpMatureAge/=1+Game.auraMult('Dragon\'s Curve')*0.05;Game.lumpRipeAge/=1+Game.auraMult('Dragon\'s Curve')*0.05;
@@ -12225,7 +12242,7 @@ Game.Launch=function()
 						
 						var val=parseInt(l('giftAmount').value||0);
 						if (val<1) val=1;
-						if (val>1000) val=1000;
+						if (val>1000000000) val=1000000000;
 						val=val||1;
 						
 						Game.Spend(val);
