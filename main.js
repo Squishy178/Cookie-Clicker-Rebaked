@@ -11357,7 +11357,7 @@ Game.Launch=function()
 		}
 		Game.getVeilBoost=function()
 		{
-			var n=0.5;
+			var n=0.2;
 			if (Game.Has('Reinforced membrane')) n+=0.1;
 			if (Game.Has('Delicate touch')) n+=0.05;
 			if (Game.Has('Steadfast murmur')) n+=0.05;
@@ -11720,7 +11720,7 @@ Game.Launch=function()
 		Game.NewUnshackleUpgradeTier({tier:13,q:'Iridyum shares little in common with any other material known to mankind. Rather than simply smelled, it can be tasted from a distance, though remaining in its presence too long is ill-advised. Some high-end underground megacomputers may incorporate iridyum as part of their electronic components.'});
 		Game.NewUnshackleUpgradeTier({tier:14,q:'Glucosmium is a glossy metal whose flavor matrix is bound to its current subjective chroma; in other words, its taste depends on which colors it\'s currently reflecting. Impractical to consume safely, its industrial applications range from transcontinental ballistics to paint varnish.'});
 		
-		new Game.Upgrade('Delicate touch',loc("The <b>shimmering veil</b> is more resistant, and has a <b>%1% chance</b> not to break. It also gives <b>+%2%</b> more CpS.",[10,5])+'<q>It breaks so easily.</q>',9999999999*15,[23,34]);Game.last.pool='prestige';Game.last.parents=['Reinforced membrane'];
+		new Game.Upgrade('Delicate touch',loc("The <b>shimmering veil</b> is more resistant, and has a <b>%1% chance</b> not to break. It also gives <b>+%2%</b> more CpS.",[10,10])+'<q>It breaks so easily.</q>',9999999999*15,[23,34]);Game.last.pool='prestige';Game.last.parents=['Reinforced membrane'];
 		new Game.Upgrade('Steadfast murmur',loc("The <b>shimmering veil</b> is more resistant, and has a <b>%1% chance</b> not to break. It also gives <b>+%2%</b> more CpS.",[10,5])+'<q>Lend an ear and listen.</q>',999999999999*15,[23,34]);Game.last.pool='prestige';Game.last.parents=['Delicate touch'];
 		new Game.Upgrade('Glittering edge',loc("The <b>shimmering veil</b> is more resistant, and has a <b>%1% chance</b> not to break. It also gives <b>+%2%</b> more CpS.",[10,5])+'<q>Just within reach, yet at what cost?</q>',99999999999999*15,[23,34]);Game.last.pool='prestige';Game.last.parents=['Steadfast murmur'];
 		
