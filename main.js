@@ -1355,9 +1355,9 @@ Game.Launch=function()
 	
 	'</div><div class="subsection update">'+
 	'<div class="title">30/10/2024 - Rebaked, 2.053</div>'+
-	'<div class="listing">&bull; This marks the Start of Cookie clicker - Rebaked! </div>'+
+	'<div class="listing">&bull; This marks the Start of Cookie clicker - Rebaked! This will hopefully be awesome</div>'+
 	'<div class="listing">&bull; Rebalanced Grimoire Spells, and added descriptions for each of them</div>'+
-	'<div class="listing">&bull; Rebalanced Pantheon gods</div>'+
+	'<div class="listing">&bull; Rebalanced the Ridgel Pantheon god</div>'+
 	'<div class="listing">&bull; Garden now gives half the plant cost upon harvesting at maturity, but only works with plants that do not spread, and has to be harvested manually</div>'+
 	'<div class="listing">&bull; Started work on The Minigame for MINES, The Cookie Caverns! This will hopefully come soon enough</div>'+
 	'<div class="listing">&bull; Allowed recieving gifts to be unlocked easier, plus increased the maximum amount of cookies to give</div>'+
