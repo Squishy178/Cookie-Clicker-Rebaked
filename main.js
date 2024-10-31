@@ -1361,7 +1361,7 @@ Game.Launch=function()
 	'<div class="listing">&bull; Garden now gives half the plant cost upon harvesting at maturity, but only works with plants that do not spread, and has to be harvested manually</div>'+
 	'<div class="listing">&bull; Started work on The Minigame for MINES, The Cookie Caverns! This will hopefully come soon enough</div>'+
 	'<div class="listing">&bull; Allowed recieving gifts to be unlocked easier, plus increased the maximum amount of cookies to give</div>'+
-	'<div class="listing">&bull; I am just learning Javascript, so the first few updates will be small. Thanks for understanding!</div>':'')+
+	'<div class="listing">&bull; I am just learning Javascript, so the first few updates will be small. Thanks for understanding!</div>'+
 	'<div class="listing">&bull; Cookie Clicker turns 11 years old this year. Thank you for clicking cookies with us! Wait was this message not in the previous patch?</div>'+
 	
 	'</div><div class="subsection update">'+
