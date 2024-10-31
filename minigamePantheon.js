@@ -112,9 +112,9 @@ M.launch=function()
 					if (Game.BuildingsOwned%10==0) return loc("Buildings owned:")+' '+Beautify(Game.BuildingsOwned)+'<br>'+loc("Effect is active.");
 					else return loc("Buildings owned:")+' '+Beautify(Game.BuildingsOwned)+'<br>'+loc("Effect is inactive.");
 				},
-				desc1:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*60*Game.fps))+'</span>'+'<span class="red">'+loc("Sugar lumps take %1% longer to ripen.",Game.sayTime(60*60*Game.fps))+'</span>',
-				desc2:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*40*Game.fps))+'</span>'+'<span class="red">'+loc("Sugar lumps take %1% longer to ripen.",Game.sayTime(60*40*Game.fps))+'</span>',
-				desc3:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*20*Game.fps))+'</span>'+'<span class="red">'+loc("Sugar lumps take %1% longer to ripen.",Game.sayTime(60*20*Game.fps))+'</span>',
+				desc1:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*60*Game.fps))+'</span>'+'<span class="red">'+loc("If the effect is inactive, Sugar lumps take %1% longer to ripen.",Game.sayTime(60*60*Game.fps))+'</span>',
+				desc2:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*40*Game.fps))+'</span>'+'<span class="red">'+loc("If the effect is inactive, Sugar lumps take %1% longer to ripen.",Game.sayTime(60*40*Game.fps))+'</span>',
+				desc3:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*20*Game.fps))+'</span>'+'<span class="red">'+loc("If the effect is inactive, Sugar lumps take %1% longer to ripen.",Game.sayTime(60*20*Game.fps))+'</span>',
 				descAfter:'<span class="red">'+loc("Effect is only active when your total amount of buildings ends with 0.")+'</span>',
 				quote:'You will find that life gets just a little bit sweeter if you can motivate this spirit with tidy numbers and properly-filled tax returns.',
 			},
