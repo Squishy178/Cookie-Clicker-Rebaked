@@ -1361,7 +1361,7 @@ Game.Launch=function()
 	'<div class="listing">&bull; Garden now gives half the plant cost upon harvesting at maturity, but only works with plants that do not spread, and has to be harvested manually</div>'+
 	'<div class="listing">&bull; Started work on The Minigame for MINES, The Cookie Caverns! This will hopefully come soon enough</div>'+
 	'<div class="listing">&bull; Allowed recieving gifts to be unlocked easier, plus increased the maximum amount of cookies to give</div>'+
-	(App?'<div class="listing">&bull; I am just learning Javascript, so the first few updates will be small. Thanks for understanding!</div>':'')+
+	'<div class="listing">&bull; I am just learning Javascript, so the first few updates will be small. Thanks for understanding!</div>':'')+
 	'<div class="listing">&bull; Cookie Clicker turns 11 years old this year. Thank you for clicking cookies with us! Wait was this message not in the previous patch?</div>'+
 	
 	'</div><div class="subsection update">'+
@@ -4433,8 +4433,7 @@ Game.Launch=function()
 				if (godLvl==1) Game.lumpRipeAge-=hour;
 				else if (godLvl==2) Game.lumpRipeAge-=(hour/3)*2;
 				else if (godLvl==3) Game.lumpRipeAge-=(hour/3);
-			}
-			else{
+			}else{
 				var godLvl=Game.hasGod('order');
 				if (godLvl==1) Game.lumpRipeAge+=hour;
 				else if (godLvl==2) Game.lumpRipeAge+=(hour/3)*2;
@@ -12242,7 +12241,7 @@ Game.Launch=function()
 						
 						var val=parseInt(l('giftAmount').value||0);
 						if (val<1) val=1;
-						if (val>1000000000) val=1000000000;
+						if (val>1000000) val=1000000;
 						val=val||1;
 						
 						Game.Spend(val);

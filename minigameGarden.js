@@ -722,7 +722,7 @@ M.launch=function()
 				ageTickR:13,
 				mature:65,
 				children:['keenmoss','foolBolete'],
-				effsStr:'<div class="green">&bull; '+loc("golden cookie duration")+' +0.5%</div><div class="green">&bull; '+loc("golden cookie frequency")+' +1%</div><div class="green">&bull; '+loc("random drops")+' +1%</div><div class="green">&bull;Does not drop cookies upon harvest</div>',
+				effsStr:'<div class="green">&bull; '+loc("golden cookie duration")+' +0.5%</div><div class="green">&bull; '+loc("golden cookie frequency")+' +1%</div><div class="green">&bull; '+loc("random drops")+' +1%</div><div class="red">&bull;Does not drop cookies upon harvest</div>',
 				q:'This short-lived mold is also known as "emerald pebbles", and is considered by some as a pseudo-gem that symbolizes good fortune.',
 				onHarvest:function(x,y,age)
 				{
