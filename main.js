@@ -1354,6 +1354,15 @@ Game.Launch=function()
 	Game.updateLog+=
 	
 	'</div><div class="subsection update">'+
+	'<div class="title">05/11/2024 - Cookie clicker: Rebaked! 2.053</div>'+
+	'<div class="listing">&bull; reviving cookie clicker, and bring it to glory again!</div>'+
+	'<div class="listing" style="font-size:80%;margin-left:20px;">-This is an unofficial version (like a mod), and all of the credit goes to Orteil for the original game. Credit for the expansion go to Squishy178</div>'+
+	'<div class="listing">&bull; Rebalanced most of the grimoire spells</div>'+
+	'<div class="listing">&bull; added a 50% harvest refund for the garden. Hopefully it is now useful</div>'+
+	'<div class="listing">&bull; More content coming soon!</div>'+
+	'<div class="listing">&bull; Cookie Clicker turns 11 years old this year. Wait was this not in the previous patch notes?</div>'+
+
+	'</div><div class="subsection update">'+
 	'<div class="title">07/05/2023 - often imitated, never duplicated</div>'+
 	'<div class="listing">&bull; added the final, 20th building</div>'+
 	'<div class="listing" style="font-size:80%;margin-left:20px;">-currently, no more buildings are planned beyond this one; there are still many more updates to come, but future patches will focus on adding minigames to the existing buildings along with other features!</div>'+
