@@ -12,5 +12,5 @@ Plans:
 - Rebalance everything so it is both interesting, fun, and does not outclass/is not out classed by others
 - Just add more content?
 
-[https://squishy178.github.io/Cookie-Clicker-Rebaked/](url)
+https://squishy178.github.io/Cookie-Clicker-Rebaked/
 
