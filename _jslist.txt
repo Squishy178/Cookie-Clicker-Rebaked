@@ -9,4 +9,3 @@ minigameGarden.js
 minigameGrimoire.js
 minigamePantheon.js
 minigameMarket.js
-minigameCavern

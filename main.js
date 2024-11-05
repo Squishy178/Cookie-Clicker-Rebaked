@@ -1354,17 +1354,6 @@ Game.Launch=function()
 	Game.updateLog+=
 	
 	'</div><div class="subsection update">'+
-	'<div class="title">30/10/2024 - Rebaked, 2.053</div>'+
-	'<div class="listing">&bull; This marks the Start of Cookie clicker - Rebaked! This will hopefully be awesome</div>'+
-	'<div class="listing">&bull; Rebalanced Grimoire Spells, and added descriptions for each of them</div>'+
-	'<div class="listing">&bull; Rebalanced the Ridgel Pantheon god</div>'+
-	'<div class="listing">&bull; Garden now gives half the plant cost upon harvesting at maturity, but only works with plants that do not spread, and has to be harvested manually</div>'+
-	'<div class="listing">&bull; Started work on The Minigame for MINES, The Cookie Caverns! This will hopefully come soon enough</div>'+
-	'<div class="listing">&bull; Allowed recieving gifts to be unlocked easier, plus increased the maximum amount of cookies to give</div>'+
-	'<div class="listing">&bull; I am just learning Javascript, so the first few updates will be small. Thanks for understanding!</div>'+
-	'<div class="listing">&bull; Cookie Clicker turns 11 years old this year. Thank you for clicking cookies with us! Wait was this message not in the previous patch?</div>'+
-	
-	'</div><div class="subsection update">'+
 	'<div class="title">07/05/2023 - often imitated, never duplicated</div>'+
 	'<div class="listing">&bull; added the final, 20th building</div>'+
 	'<div class="listing" style="font-size:80%;margin-left:20px;">-currently, no more buildings are planned beyond this one; there are still many more updates to come, but future patches will focus on adding minigames to the existing buildings along with other features!</div>'+
@@ -4433,11 +4422,6 @@ Game.Launch=function()
 				if (godLvl==1) Game.lumpRipeAge-=hour;
 				else if (godLvl==2) Game.lumpRipeAge-=(hour/3)*2;
 				else if (godLvl==3) Game.lumpRipeAge-=(hour/3);
-			}else{
-				var godLvl=Game.hasGod('order');
-				if (godLvl==1) Game.lumpRipeAge+=hour;
-				else if (godLvl==2) Game.lumpRipeAge+=(hour/3)*2;
-				else if (godLvl==3) Game.lumpRipeAge+=(hour/3);
 			}
 			//if (Game.hasAura('Dragon\'s Curve')) {Game.lumpMatureAge/=1.05;Game.lumpRipeAge/=1.05;}
 			Game.lumpMatureAge/=1+Game.auraMult('Dragon\'s Curve')*0.05;Game.lumpRipeAge/=1+Game.auraMult('Dragon\'s Curve')*0.05;
@@ -8846,7 +8830,7 @@ Game.Launch=function()
 			if (this.amount>=Game.SpecialGrandmaUnlock && Game.Objects['Grandma'].amount>0) Game.Unlock(this.grandma.name);
 		});
 		//Game.last.minigameUrl='minigameDungeon.js';//not yet
-		//Game.last.minigameName=loc("Dungeon");
+		Game.last.minigameName=loc("Dungeon");
 		
 		new Game.Object('Bank','bank|banks|banked|Interest rates [X]% better|Interest rates [X]% better','Generates cookies from interest.',6,15,{base:'bank',xV:8,yV:4,w:56,rows:1,x:0,y:13},0,function(me){
 			var mult=1;
@@ -8894,9 +8878,6 @@ Game.Launch=function()
 			Game.UnlockTiered(this);
 			if (this.amount>=Game.SpecialGrandmaUnlock && Game.Objects['Grandma'].amount>0) Game.Unlock(this.grandma.name);
 		});
-		Game.last.displayName='<span style="font-size:90%;letter-spacing:-1px;position:relative;bottom:2px;">Shipment</span>';//shrink
-		// Game.last.minigameUrl='minigameGalactic.js'; Hopefully this will be finished soon :)
-		// Game.last.minigameName=loc("Galactic");
 		
 		new Game.Object('Alchemy lab','alchemy lab|alchemy labs|transmuted|[X] primordial element mastered|[X] primordial elements mastered','Turns gold into cookies!',10,6,{base:'alchemylab',xV:16,yV:16,w:64,rows:2,x:0,y:16},200000,function(me){
 			var mult=1;
@@ -11376,7 +11357,7 @@ Game.Launch=function()
 		}
 		Game.getVeilBoost=function()
 		{
-			var n=0.2;
+			var n=0.5;
 			if (Game.Has('Reinforced membrane')) n+=0.1;
 			if (Game.Has('Delicate touch')) n+=0.05;
 			if (Game.Has('Steadfast murmur')) n+=0.05;
@@ -11739,7 +11720,7 @@ Game.Launch=function()
 		Game.NewUnshackleUpgradeTier({tier:13,q:'Iridyum shares little in common with any other material known to mankind. Rather than simply smelled, it can be tasted from a distance, though remaining in its presence too long is ill-advised. Some high-end underground megacomputers may incorporate iridyum as part of their electronic components.'});
 		Game.NewUnshackleUpgradeTier({tier:14,q:'Glucosmium is a glossy metal whose flavor matrix is bound to its current subjective chroma; in other words, its taste depends on which colors it\'s currently reflecting. Impractical to consume safely, its industrial applications range from transcontinental ballistics to paint varnish.'});
 		
-		new Game.Upgrade('Delicate touch',loc("The <b>shimmering veil</b> is more resistant, and has a <b>%1% chance</b> not to break. It also gives <b>+%2%</b> more CpS.",[10,10])+'<q>It breaks so easily.</q>',9999999999*15,[23,34]);Game.last.pool='prestige';Game.last.parents=['Reinforced membrane'];
+		new Game.Upgrade('Delicate touch',loc("The <b>shimmering veil</b> is more resistant, and has a <b>%1% chance</b> not to break. It also gives <b>+%2%</b> more CpS.",[10,5])+'<q>It breaks so easily.</q>',9999999999*15,[23,34]);Game.last.pool='prestige';Game.last.parents=['Reinforced membrane'];
 		new Game.Upgrade('Steadfast murmur',loc("The <b>shimmering veil</b> is more resistant, and has a <b>%1% chance</b> not to break. It also gives <b>+%2%</b> more CpS.",[10,5])+'<q>Lend an ear and listen.</q>',999999999999*15,[23,34]);Game.last.pool='prestige';Game.last.parents=['Delicate touch'];
 		new Game.Upgrade('Glittering edge',loc("The <b>shimmering veil</b> is more resistant, and has a <b>%1% chance</b> not to break. It also gives <b>+%2%</b> more CpS.",[10,5])+'<q>Just within reach, yet at what cost?</q>',99999999999999*15,[23,34]);Game.last.pool='prestige';Game.last.parents=['Steadfast murmur'];
 		
@@ -12241,7 +12222,7 @@ Game.Launch=function()
 						
 						var val=parseInt(l('giftAmount').value||0);
 						if (val<1) val=1;
-						if (val>1000000) val=1000000;
+						if (val>1000) val=1000;
 						val=val||1;
 						
 						Game.Spend(val);
