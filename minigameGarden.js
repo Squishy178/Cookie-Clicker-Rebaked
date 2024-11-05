@@ -597,13 +597,13 @@ M.launch=function()
 				noContam:true,
 				detailsStr:cap(loc("spreads easily")),
 				children:['crumbspore','doughshroom','foolBolete','shriekbulb'],
-				effsStr:'<div class="green">&bull;,</div><div class="red">&bull; '+loc("may overtake nearby plants")+'</div>',
+				effsStr:'<div class="green">&bull;Grants slightly extra cookies upon harvest</div><div class="red">&bull; '+loc("may overtake nearby plants")+'</div>',
 				q:'Jammed full of warm spores; some forest walkers often describe the smell as similar to passing by a bakery.',
 				onHarvest:function(x,y,age)
 				{
 					if (age>=this.mature)
 					{
-						var moni=Game.cookiesPs*60*(100/2);
+						var moni=Game.cookiesPs*60*(66.6);
 						if (moni!=0)
 						{
 							Game.Earn(moni);

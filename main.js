@@ -1354,6 +1354,14 @@ Game.Launch=function()
 	Game.updateLog+=
 	
 	'</div><div class="subsection update">'+
+	'<div class="title">05/11/2024 - A minor update: 2.054</div>'+
+	'<div class="listing">&bull; Buffed Doughshroom slightly. It was bugged lol and It needed a buff anyway</div>'+
+	'<div class="listing">&bull; Made some slight pantheon rebalancing</div>'+
+	'<div class="listing">&bull; Started work on the Cookie cavern minigame. (minigame for mines)</div>'+
+	'<div class="listing">&bull; Javascript console efficiency buffed.</div>'+
+	'<div class="listing">&bull; Added another heavenly upgrade. </div>'+
+
+	'</div><div class="subsection update">'+
 	'<div class="title">05/11/2024 - Cookie clicker: Rebaked! 2.053</div>'+
 	'<div class="listing">&bull; reviving cookie clicker, and bring it to glory again!</div>'+
 	'<div class="listing" style="font-size:80%;margin-left:20px;">-This is an unofficial version (like a mod), and all of the credit goes to Orteil for the original game. Credit for the expansion go to Squishy178</div>'+
@@ -5017,6 +5025,11 @@ Game.Launch=function()
 				if (godLvl==1) buildMult*=0.97;
 				else if (godLvl==2) buildMult*=0.98;
 				else if (godLvl==3) buildMult*=0.99;
+				
+				var godLvl=Game.hasGod('ruin');
+				if (godLvl==1) buildMult*=0.97;
+				else if (godLvl==2) buildMult*=0.98;
+				else if (godLvl==3) buildMult*=0.99;
 			}
 			
 			if (Game.Has('Santa\'s legacy')) mult*=1+(Game.santaLevel+1)*0.03;
@@ -5610,6 +5623,7 @@ Game.Launch=function()
 					else if (choice=='blab')//sorry (it's really rare)
 					{
 						var str=EN?(choose([
+						'Rebaked',
 						'Cookie crumbliness x3 for 60 seconds!',
 						'Chocolatiness x7 for 77 seconds!',
 						'Dough elasticity halved for 66 seconds!',
@@ -5647,7 +5661,10 @@ Game.Launch=function()
 						'This golden cookie was a complete fabrication.',
 						'In theory there\'s no wrong way to click a golden cookie, but you just did that, somehow.',
 						'All cookies multiplied by 999!<br>All cookies divided by 999!',
-						'Why?'
+						'Why?',
+						'Blab',
+						'Got scammed',
+						'Frenzy: 7x cookie production for 0 seconds!'
 						])):choose(loc("Cookie blab"));
 						popup=str;
 					}
@@ -5894,7 +5911,7 @@ Game.Launch=function()
 			'Cursor':['High-five','Slap to the face'],
 			'Grandma':['Congregation','Senility'],
 			'Farm':['Luxuriant harvest','Locusts'],
-			'Mine':['Ore vein','Cave-in'],
+			'Mine':['Ore vein','Cave-in',''],
 			'Factory':['Oiled-up','Jammed machinery'],
 			'Bank':['Juicy profits','Recession'],
 			'Temple':['Fervent adoration','Crisis of faith'],
@@ -7739,6 +7756,7 @@ Game.Launch=function()
 				if (this.id>=19) this.basePrice*=20;
 				this.price=this.basePrice;
 				this.bulkPrice=this.price;
+				if (this.id==16) this.baseCps*=1.35;
 			}
 			
 			this.totalCookies=0;
@@ -7901,9 +7919,9 @@ Game.Launch=function()
 					}
 					else
 					{
-						if (godLvl==1) Game.gainBuff('devastation',10,1+sold*0.01);
-						else if (godLvl==2) Game.gainBuff('devastation',10,1+sold*0.005);
-						else if (godLvl==3) Game.gainBuff('devastation',10,1+sold*0.0025);
+						if (godLvl==1) Game.gainBuff('devastation',30,1+sold*0.01);
+						else if (godLvl==2) Game.gainBuff('devastation',30,1+sold*0.005);
+						else if (godLvl==3) Game.gainBuff('devastation',30,1+sold*0.0025);
 					}
 				}
 				if (success && Game.shimmerTypes['golden'].n<=0 && Game.auraMult('Dragon Orbs')>0)
