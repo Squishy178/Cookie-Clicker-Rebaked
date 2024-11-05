@@ -4439,6 +4439,11 @@ Game.Launch=function()
 				if (godLvl==1) Game.lumpRipeAge-=hour;
 				else if (godLvl==2) Game.lumpRipeAge-=(hour/3)*2;
 				else if (godLvl==3) Game.lumpRipeAge-=(hour/3);
+			}else{
+				var godLvl=Game.hasGod('order');
+				if (godLvl==1) Game.lumpRipeAge+=hour;
+				else if (godLvl==2) Game.lumpRipeAge+=(hour/3)*2;
+				else if (godLvl==3) Game.lumpRipeAge+=(hour/3);
 			}
 			//if (Game.hasAura('Dragon\'s Curve')) {Game.lumpMatureAge/=1.05;Game.lumpRipeAge/=1.05;}
 			Game.lumpMatureAge/=1+Game.auraMult('Dragon\'s Curve')*0.05;Game.lumpRipeAge/=1+Game.auraMult('Dragon\'s Curve')*0.05;
