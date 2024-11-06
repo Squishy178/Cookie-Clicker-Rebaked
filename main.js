@@ -10113,7 +10113,7 @@ Game.Launch=function()
 			Game.Unlock('Elder Covenant');
 			Game.CollectWrinklers();
 			Game.storeToRefresh=1;
-			Game.SetResearch('Sentience I');
+			// Game.SetResearch('Sentience I');
 		});
 		// order=16500;
 		// new Game.Upgrade('Sentience I',loc("Each %1 gains <b>+%2 base CpS per %3</b>.",[loc("You"),'<span>500 billion</span>2',loc("Javascript console")])+'<div class="warning">'+loc("Grants your clones a portion of sentience. Now they can make some descisions for themselves...")+'</div><q>This may not be the best idea</q>',8000000000000000000000000000000,[18,11],function(){Game.SetResearch('Sentience II');Game.storeToRefresh=1;});Game.last.pool='tech';
