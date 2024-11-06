@@ -4151,7 +4151,10 @@ Game.Launch=function()
 				if (Game.resets>=100) Game.Win('Reincarnation');
 				if (Game.resets>=10) Game.Win('Resurrection');
 				if (Game.resets>=1) Game.Win('Rebirth');
-				
+				if (Game.has('Cosmic beginner\'s luck')){
+					Game.gainBuff('cosmic luck',(60*60*3),10);
+				}
+
 				var prestigeUpgradesOwned=0;
 				for (var i in Game.Upgrades)
 				{
@@ -5205,7 +5208,7 @@ Game.Launch=function()
 			//if (Game.hasAura('Mind Over Matter')) rate*=1.25;
 			rate*=1+Game.auraMult('Mind Over Matter')*0.25;
 			if (Game.Has('Santa\'s bottomless bag')) rate*=1.1;
-			if (Game.Has('Cosmic beginner\'s luck') && !Game.Has('Heavenly chip secret')) rate*=5;
+			if (Game.hasBuff('Cosmic luck')) rate*=10;
 			return rate;
 		}
 		/*=====================================================================================
@@ -5669,7 +5672,8 @@ Game.Launch=function()
 						'Why?',
 						'Blab',
 						'Got scammed',
-						'Frenzy: 7x cookie production for 0 seconds!'
+						'Frenzy: 7x cookie production for 0 seconds!',
+						'Nice Try'
 						])):choose(loc("Cookie blab"));
 						popup=str;
 					}
@@ -10080,7 +10084,7 @@ Game.Launch=function()
 			{
 				Game.researchT=Game.baseResearchTime;
 				if (Game.Has('Persistent memory')) Game.researchT=Math.ceil(Game.baseResearchTime/10);
-				if (Game.Has('Memorization')) Game.researchT=Math.ceil(Game.researchT/1+(Game.resets/(5*Math.log(Game.prestige))));
+				// if (Game.Has('Memorization')) Game.researchT=Math.ceil(Game.researchT/1+(Game.resets/(5*Math.log(Game.prestige))));
 				if (Game.Has('Ultrascience')) Game.researchT=Game.fps*5;
 				Game.nextResearch=Game.Upgrades[what].id;
 				Game.Notify(loc("Research has begun"),loc("Your bingo center/research facility is conducting experiments."),[9,0]);
@@ -11378,7 +11382,7 @@ Game.Launch=function()
 		Game.NewUpgradeCookie({name:'Chocolate chip cookie',desc:'This is the cookie you\'ve been clicking this whole time. It looks a bit dented and nibbled on, but it\'s otherwise good as new.',icon:[10,0],power:10,require:'Legacy',price:1000000000000});
 		
 		
-		new Game.Upgrade('Cosmic beginner\'s luck',loc("Prior to purchasing the <b>%1</b> upgrade in a run, random drops are <b>%2 times more common</b>.",[getUpgradeName("Heavenly chip secret"),5])+'<q>Oh! A penny!<br>Oh! A priceless heirloom!<br>Oh! Another penny!</q>',999999999*15,[8,10]);Game.last.pool='prestige';Game.last.parents=['Shimmering veil'];
+		new Game.Upgrade('Cosmic beginner\'s luck',loc("Upon ascending, you gain cosmic luck, making random drops <b>%1 times more common</b> for 3 hours.",10)+'<q>Oh! A penny!<br>Oh! A priceless heirloom!<br>Oh! Another penny!</q>',999999999*15,[8,10]);Game.last.pool='prestige';Game.last.parents=['Shimmering veil'];
 		Game.getVeilDefense=function()
 		{
 			var n=0;
@@ -11965,7 +11969,7 @@ Game.Launch=function()
 		
 		
 		new Game.Upgrade('Wrapping paper',loc("You may now send and receive gifts with other players through buttons in the top-right of the %1 menu.",loc("Options"))+'<q>Of course, you could\'ve done this all along, but what kind of maniac sends presents without wrapping them first?</q>',999999,[16,9]);Game.last.pool='prestige';Game.last.parents=['Heralds'];
-		new Game.Upgrade('Memorization',loc("Each prestiege point <b>greatly increases research speed</b>")+'<q>You would think that by now you would have remembered at least SOME of your notes!</q>',1300000,[34,0]);Game.last.pool='prestige';Game.last.parents=['Persistent memory','Genius accounting'];
+		// new Game.Upgrade('Memorization',loc("Each prestige point <b>greatly increases research speed</b>")+'<q>You would think that by now you would have remembered at least SOME of your notes!</q>',1300000,[34,0]);Game.last.pool='prestige';Game.last.parents=['Persistent memory','Genius accounting'];
 		
 		Game.giftBoxDesigns=[
 			[34,6],[16,9],[34,3],[34,4],[34,5],[34,7],[34,8],[34,9],[34,10],[34,11],[34,12],
@@ -14217,6 +14221,17 @@ Game.Launch=function()
 				name:'Gifted out',
 				desc:loc("Can't send or receive gifts again for %1.",Game.sayTime(time*Game.fps,-1)),
 				icon:[34,6],
+				time:time*Game.fps,
+				power:pow,
+				max:true
+			};
+		});
+		new Game.buffType('cosmic luck',function(time,pow)
+		{
+			return {
+				name:'cosmic Luck',
+				desc:loc("Gain %1x drop rates for %2 hours",pow,Game.sayTime(time*Game.fps,-1)),
+				icon:[8,10],
 				time:time*Game.fps,
 				power:pow,
 				max:true
