@@ -1359,7 +1359,7 @@ Game.Launch=function()
 	// '<div class="listing">&bull; Added a few more blabs because why not</div>'+
 	// '<div class="listing">&bull; Really nothing else honestly the cavern minigame took a while</div>'+
 
-	'</div><div class="subsection update">'+
+	'</div><div class="subsection update small">'+
 	'<div class="title">05/11/2024 - A minor update: 2.054</div>'+
 	'<div class="listing">&bull; Buffed Doughshroom slightly. It was bugged lol and It needed a buff anyway</div>'+
 	'<div class="listing">&bull; Made some slight pantheon rebalancing</div>'+
@@ -10080,6 +10080,7 @@ Game.Launch=function()
 			{
 				Game.researchT=Game.baseResearchTime;
 				if (Game.Has('Persistent memory')) Game.researchT=Math.ceil(Game.baseResearchTime/10);
+				if (Game.Has('Memorization')) Game.researchT=Math.ceil(Game.researchT/1+(Game.resets/3*Math.log(Game.prestige)));
 				if (Game.Has('Ultrascience')) Game.researchT=Game.fps*5;
 				Game.nextResearch=Game.Upgrades[what].id;
 				Game.Notify(loc("Research has begun"),loc("Your bingo center/research facility is conducting experiments."),[9,0]);
@@ -11964,6 +11965,7 @@ Game.Launch=function()
 		
 		
 		new Game.Upgrade('Wrapping paper',loc("You may now send and receive gifts with other players through buttons in the top-right of the %1 menu.",loc("Options"))+'<q>Of course, you could\'ve done this all along, but what kind of maniac sends presents without wrapping them first?</q>',999999,[16,9]);Game.last.pool='prestige';Game.last.parents=['Heralds'];
+		new Game.Upgrade('Memorization',"Researching is <b>much faster</b> for every prestige point you have "+'<q>You would think that by now you would have remembered at least SOME of your notes!</q>',1300000,[35,1]);Game.last.pool='prestige';Game.last.parents=['Persistent memory'];
 		
 		Game.giftBoxDesigns=[
 			[34,6],[16,9],[34,3],[34,4],[34,5],[34,7],[34,8],[34,9],[34,10],[34,11],[34,12],

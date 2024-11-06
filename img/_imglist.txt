@@ -23,6 +23,7 @@ http://orteil.dashnet.org/cookieclicker/img/bgBW.jpg
 http://orteil.dashnet.org/cookieclicker/img/bgBlack.jpg
 http://orteil.dashnet.org/cookieclicker/img/bgBlue.jpg
 http://orteil.dashnet.org/cookieclicker/img/bgCandy.jpg
+http://orteil.dashnet.org/cookieclicker/img/BGcavern.jpg
 http://orteil.dashnet.org/cookieclicker/img/bgChoco.jpg
 http://orteil.dashnet.org/cookieclicker/img/bgChocoDark.jpg
 http://orteil.dashnet.org/cookieclicker/img/bgCoarse.jpg
