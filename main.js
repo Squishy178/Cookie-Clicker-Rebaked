@@ -4152,7 +4152,7 @@ Game.Launch=function()
 				if (Game.resets>=10) Game.Win('Resurrection');
 				if (Game.resets>=1) Game.Win('Rebirth');
 				if (Game.has('Cosmic beginner\'s luck')){
-					Game.gainBuff('cosmic luck',(60*60*3),10);
+					Game.gainBuff('Cosmic beginner\'s luck',(60*60*3),10);
 				}
 
 				var prestigeUpgradesOwned=0;
@@ -5208,7 +5208,7 @@ Game.Launch=function()
 			//if (Game.hasAura('Mind Over Matter')) rate*=1.25;
 			rate*=1+Game.auraMult('Mind Over Matter')*0.25;
 			if (Game.Has('Santa\'s bottomless bag')) rate*=1.1;
-			if (Game.hasBuff('Cosmic luck')) rate*=10;
+			if (Game.hasBuff('Cosmic beginner\'s luck')) rate*=10;
 			return rate;
 		}
 		/*=====================================================================================
@@ -14226,10 +14226,10 @@ Game.Launch=function()
 				max:true
 			};
 		});
-		new Game.buffType('cosmic luck',function(time,pow)
+		new Game.buffType('Cosmic beginner\'s luck',function(time,pow)
 		{
 			return {
-				name:'cosmic Luck',
+				name:'Cosmic beginner\'s luck',
 				desc:loc("Gain %1x drop rates for %2 hours",pow,Game.sayTime(time*Game.fps,-1)),
 				icon:[8,10],
 				time:time*Game.fps,
