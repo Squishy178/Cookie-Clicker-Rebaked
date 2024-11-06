@@ -4151,10 +4151,9 @@ Game.Launch=function()
 				if (Game.resets>=100) Game.Win('Reincarnation');
 				if (Game.resets>=10) Game.Win('Resurrection');
 				if (Game.resets>=1) Game.Win('Rebirth');
-				// if (Game.has('Cosmic beginner\'s luck')){
-				// 	Game.gainBuff('Cosmic beginner\'s luck',(3600*3),10);
-				// }
-				Game.gainBuff('Cosmic beginner\'s luck',(3600*3),10);
+				if (Game.has('Cosmic beginner\'s luck')){
+					Game.gainBuff('Cosmic luck',(3600*3),10);
+				}
 
 				var prestigeUpgradesOwned=0;
 				for (var i in Game.Upgrades)
@@ -5209,7 +5208,7 @@ Game.Launch=function()
 			//if (Game.hasAura('Mind Over Matter')) rate*=1.25;
 			rate*=1+Game.auraMult('Mind Over Matter')*0.25;
 			if (Game.Has('Santa\'s bottomless bag')) rate*=1.1;
-			if (Game.hasBuff('Cosmic beginner\'s luck')) rate*=10;
+			if (Game.hasBuff('Cosmic luck')) rate*=10;
 			return rate;
 		}
 		/*=====================================================================================
@@ -11383,7 +11382,7 @@ Game.Launch=function()
 		Game.NewUpgradeCookie({name:'Chocolate chip cookie',desc:'This is the cookie you\'ve been clicking this whole time. It looks a bit dented and nibbled on, but it\'s otherwise good as new.',icon:[10,0],power:10,require:'Legacy',price:1000000000000});
 		
 		
-		new Game.Upgrade('Cosmic beginner\'s luck',loc("Upon ascending, you gain cosmic luck, making random drops <b>%1 times more common</b> for 3 hours.",10)+'<q>Oh! A penny!<br>Oh! A priceless heirloom!<br>Oh! Another penny!</q>',999999999*15,[8,10]);Game.last.pool='prestige';Game.last.parents=['Shimmering veil'];
+		new Game.Upgrade('Cosmic beginner\'s luck',loc("Upon ascending, you gain cosmic luck, making random drops <b>10 times more common</b> for 3 hours.")+'<q>Oh! A penny!<br>Oh! A priceless heirloom!<br>Oh! Another penny!</q>',999999999*15,[8,10]);Game.last.pool='prestige';Game.last.parents=['Shimmering veil'];
 		Game.getVeilDefense=function()
 		{
 			var n=0;
@@ -14227,10 +14226,10 @@ Game.Launch=function()
 				max:true
 			};
 		});
-		new Game.buffType('Cosmic beginner\'s luck',function(time,pow)
+		new Game.buffType('Cosmic luck',function(time,pow)
 		{
 			return {
-				name:'Cosmic beginner\'s luck',
+				name:'Cosmic luck',
 				desc:loc("Gain %1 times drop rates for %2 hours",pow,Game.sayTime(time*Game.fps,-1)),
 				icon:[8,10],
 				time:time*Game.fps,
