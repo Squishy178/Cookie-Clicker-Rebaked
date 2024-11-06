@@ -4152,7 +4152,7 @@ Game.Launch=function()
 				if (Game.resets>=10) Game.Win('Resurrection');
 				if (Game.resets>=1) Game.Win('Rebirth');
 				if (Game.has('Cosmic beginner\'s luck')){
-					Game.gainBuff('Cosmic beginner\'s luck',(60*60*3),10);
+					Game.gainBuff('Cosmic beginner\'s luck',(3600*3),10);
 				}
 
 				var prestigeUpgradesOwned=0;
@@ -14230,7 +14230,7 @@ Game.Launch=function()
 		{
 			return {
 				name:'Cosmic beginner\'s luck',
-				desc:loc("Gain %1x drop rates for %2 hours",pow,Game.sayTime(time*Game.fps,-1)),
+				desc:loc("Gain %1 times drop rates for %2 hours",pow,Game.sayTime(time*Game.fps,-1)),
 				icon:[8,10],
 				time:time*Game.fps,
 				power:pow,
