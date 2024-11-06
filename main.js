@@ -1352,14 +1352,19 @@ Game.Launch=function()
 	if (!EN) Game.updateLog+='<div class="listing" style="font-weight:bold;font-style:italic;opacity:0.5;">'+loc("Note: older update notes are in English.")+'</div>';
 	
 	Game.updateLog+=
-	
+	// '</div><div class="subsection update">'+
+	// '<div class="title">05/11/2024 - The "first" Major update: 2.1 </div>'+
+	// '<div class="listing">&bull; Added The Cookie Cavern minigame!</div>'+
+	// '<div class="listing">&bull; Reverted Pantheon Ridgel change, plus did some further rebalancing to the ruin god</div>'+
+	// '<div class="listing">&bull; Added a few more blabs because why not</div>'+
+	// '<div class="listing">&bull; Really nothing else honestly the cavern minigame took a while</div>'+
+
 	'</div><div class="subsection update">'+
 	'<div class="title">05/11/2024 - A minor update: 2.054</div>'+
 	'<div class="listing">&bull; Buffed Doughshroom slightly. It was bugged lol and It needed a buff anyway</div>'+
 	'<div class="listing">&bull; Made some slight pantheon rebalancing</div>'+
 	'<div class="listing">&bull; Started work on the Cookie cavern minigame. (minigame for mines)</div>'+
 	'<div class="listing">&bull; Javascript console efficiency buffed.</div>'+
-	'<div class="listing">&bull; Added another heavenly upgrade. </div>'+
 
 	'</div><div class="subsection update">'+
 	'<div class="title">05/11/2024 - Cookie clicker: Rebaked! 2.053</div>'+
@@ -4439,11 +4444,6 @@ Game.Launch=function()
 				if (godLvl==1) Game.lumpRipeAge-=hour;
 				else if (godLvl==2) Game.lumpRipeAge-=(hour/3)*2;
 				else if (godLvl==3) Game.lumpRipeAge-=(hour/3);
-			}else{
-				var godLvl=Game.hasGod('order');
-				if (godLvl==1) Game.lumpRipeAge+=hour;
-				else if (godLvl==2) Game.lumpRipeAge+=(hour/3)*2;
-				else if (godLvl==3) Game.lumpRipeAge+=(hour/3);
 			}
 			//if (Game.hasAura('Dragon\'s Curve')) {Game.lumpMatureAge/=1.05;Game.lumpRipeAge/=1.05;}
 			Game.lumpMatureAge/=1+Game.auraMult('Dragon\'s Curve')*0.05;Game.lumpRipeAge/=1+Game.auraMult('Dragon\'s Curve')*0.05;
@@ -7847,8 +7847,8 @@ Game.Launch=function()
 			}
 			this.getSellMultiplier=function()
 			{
-				var giveBack=0.25;
-				//if (Game.hasAura('Earth Shatterer')) giveBack=0.5;
+				var giveBack=0.65;
+				//if (Game.hasAura('Earth Shatterer')) giveBack=0.85;
 				giveBack*=1+Game.auraMult('Earth Shatterer');
 				return giveBack;
 			}
@@ -7924,9 +7924,9 @@ Game.Launch=function()
 					}
 					else
 					{
-						if (godLvl==1) Game.gainBuff('devastation',30,1+sold*0.01);
-						else if (godLvl==2) Game.gainBuff('devastation',30,1+sold*0.005);
-						else if (godLvl==3) Game.gainBuff('devastation',30,1+sold*0.0025);
+						if (godLvl==1) Game.gainBuff('devastation',20,1+sold*0.01);
+						else if (godLvl==2) Game.gainBuff('devastation',20,1+sold*0.005);
+						else if (godLvl==3) Game.gainBuff('devastation',20,1+sold*0.0025);
 					}
 				}
 				if (success && Game.shimmerTypes['golden'].n<=0 && Game.auraMult('Dragon Orbs')>0)

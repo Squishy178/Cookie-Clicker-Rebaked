@@ -31,9 +31,9 @@ M.launch=function()
 				name:'Godzamok, Spirit of Ruin',
 				icon:[23,18],
 				descBefore:'<span class="green">'+loc("Selling buildings triggers a buff boosted by how many buildings were sold.")+'</span>' ,
-				desc1:'<span class="green">'+loc("Buff boosts clicks by +%1% for every building sold for %2 seconds.",[1,30])+'</span> <span class="red">'+loc("Buildings grant -%1% CpS.",3)+'</span>',
-				desc2:'<span class="green">'+loc("Buff boosts clicks by +%1% for every building sold for %2 seconds.",[0.5,30])+'</span> <span class="red">'+loc("Buildings grant -%1% CpS.",2)+'</span>',
-				desc3:'<span class="green">'+loc("Buff boosts clicks by +%1% for every building sold for %2 seconds.",[0.25,30])+'</span> <span class="red">'+loc("Buildings grant -%1% CpS.",1)+'</span>',
+				desc1:'<span class="green">'+loc("Buff boosts clicks by +%1% for every building sold for %2 seconds.",[1,20])+'</span> <span class="red">'+loc("Buildings grant -%1% CpS.",3)+'</span>',
+				desc2:'<span class="green">'+loc("Buff boosts clicks by +%1% for every building sold for %2 seconds.",[0.5,20])+'</span> <span class="red">'+loc("Buildings grant -%1% CpS.",2)+'</span>',
+				desc3:'<span class="green">'+loc("Buff boosts clicks by +%1% for every building sold for %2 seconds.",[0.25,20])+'</span> <span class="red">'+loc("Buildings grant -%1% CpS.",1)+'</span>',
 				quote:'The embodiment of natural disasters. An impenetrable motive drives the devastation caused by this spirit.',
 			},
 			'ages':{
@@ -112,9 +112,9 @@ M.launch=function()
 					if (Game.BuildingsOwned%10==0) return loc("Buildings owned:")+' '+Beautify(Game.BuildingsOwned)+'<br>'+loc("Effect is active.");
 					else return loc("Buildings owned:")+' '+Beautify(Game.BuildingsOwned)+'<br>'+loc("Effect is inactive.");
 				},
-				desc1:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*60*Game.fps))+'</span> <span class="red">'+loc("If the effect is inactive, Sugar lumps take %1% longer to ripen.",Game.sayTime(60*20*Game.fps))+'</span>',
-				desc2:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*40*Game.fps))+'</span> <span class="red">'+loc("If the effect is inactive, Sugar lumps take %1% longer to ripen.",Game.sayTime(40*20*Game.fps))+'</span>',
-				desc3:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*20*Game.fps))+'</span>'+'<span class="red">'+loc("If the effect is inactive, Sugar lumps take %1% longer to ripen.",Game.sayTime(20*20*Game.fps))+'</span>',
+				desc1:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*60*Game.fps))+'</span> <span class="red">'+'</span>',
+				desc2:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*40*Game.fps))+'</span> <span class="red">'+'</span>',
+				desc3:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*20*Game.fps))+'</span>'+'<span class="red">'+'</span>',
 				descAfter:'<span class="red">'+loc("Effect is only active when your total amount of buildings ends with 0.")+'</span>',
 				quote:'You will find that life gets just a little bit sweeter if you can motivate this spirit with tidy numbers and properly-filled tax returns.',
 			},
