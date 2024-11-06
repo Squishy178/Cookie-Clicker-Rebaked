@@ -10115,6 +10115,7 @@ Game.Launch=function()
 			Game.storeToRefresh=1;
 			Game.SetResearch('Sentience I');
 		});
+		order=16500;
 		new Game.Upgrade('Sentience I',loc("Each %1 gains <b>+%2 base CpS per %3</b>.",[loc("You"),'<span>500 billion</span>2',loc("Javascript console")])+'<div class="warning">'+loc("Grants your clones a portion of sentience. Now they can make some descisions for themselves...")+'</div><q>This may not be the best idea</q>',8000000000000000000000000000000,[18,11],function(){Game.SetResearch('Sentience II');Game.storeToRefresh=1;});Game.last.pool='tech';
 		new Game.Upgrade('Sentience II',loc("Each %1 gains <b>+%2 base CpS per %3</b>.",[loc("You"),'<span>1 trillion</span>2',loc("Idleverse")])+'<div class="warning">'+loc("Grants your clones partial sentience. Now they can make most descisions for themselves...")+'</div><q>This is not the best idea</q>',16000000000000000000000000000000,[19,11],function(){Game.SetResearch('Sentience III');Game.storeToRefresh=1;});Game.last.pool='tech';
 		new Game.Upgrade('Sentience III',loc("Each %1 gains <b>+%2 base CpS per %3</b>.",[loc("You"),'<span>1 trillion</span>2',loc("Cortex baker")])+'<div class="warning">'+loc("Grants your clones a complete sentience. Now they can make all descisions for themselves...")+'</div><q>This is a terrible idea</q>',32000000000000000000000000000000,[20,11],function(){Game.SetResearch('Heavenly energy');Game.storeToRefresh=1;});Game.last.pool='tech';
