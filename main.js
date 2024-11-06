@@ -4151,9 +4151,10 @@ Game.Launch=function()
 				if (Game.resets>=100) Game.Win('Reincarnation');
 				if (Game.resets>=10) Game.Win('Resurrection');
 				if (Game.resets>=1) Game.Win('Rebirth');
-				if (Game.has('Cosmic beginner\'s luck')){
-					Game.gainBuff('Cosmic beginner\'s luck',(3600*3),10);
-				}
+				// if (Game.has('Cosmic beginner\'s luck')){
+				// 	Game.gainBuff('Cosmic beginner\'s luck',(3600*3),10);
+				// }
+				Game.gainBuff('Cosmic beginner\'s luck',(3600*3),10);
 
 				var prestigeUpgradesOwned=0;
 				for (var i in Game.Upgrades)
