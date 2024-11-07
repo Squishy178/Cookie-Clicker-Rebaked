@@ -1353,9 +1353,9 @@ Game.Launch=function()
 	
 	Game.updateLog+=
 	// '</div><div class="subsection update">'+
-	// '<div class="title">05/11/2024 - The "first" Major update: 2.1 </div>'+
+	// '<div class="title">06/11/2024 - The "first" Major update: 2.1 </div>'+
 	// '<div class="listing">&bull; Added The Cookie Cavern minigame!</div>'+
-	// '<div class="listing">&bull; Reverted Pantheon Ridgel change, plus did some further rebalancing to the ruin god</div>'+
+	// '<div class="listing">&bull; Reverted Pantheon Ridgel change, plus did some balancing to the Grimoire</div>'+
 	// '<div class="listing">&bull; Added a few more blabs because why not</div>'+
 	// '<div class="listing">&bull; Really nothing else honestly the cavern minigame took a while</div>'+
 
@@ -8855,6 +8855,8 @@ Game.Launch=function()
 			Game.UnlockTiered(this);
 			if (this.amount>=Game.SpecialGrandmaUnlock && Game.Objects['Grandma'].amount>0) Game.Unlock(this.grandma.name);
 		});
+		Game.last.minigameUrl='minigameCaverns.js';
+		Game.last.minigameName=loc("Cookie Cavern");
 		
 		new Game.Object('Factory','factory|factories|mass-produced|[X] additional patent|[X] additional patents','Produces large quantities of cookies.',5,4,{base:'factory',xV:8,yV:0,w:64,rows:1,x:0,y:-22},3000,function(me){
 			var mult=1;
@@ -8866,7 +8868,7 @@ Game.Launch=function()
 			if (this.amount>=Game.SpecialGrandmaUnlock && Game.Objects['Grandma'].amount>0) Game.Unlock(this.grandma.name);
 		});
 		//Game.last.minigameUrl='minigameDungeon.js';//not yet
-		Game.last.minigameName=loc("Dungeon");
+		//Game.last.minigameName=loc("Dungeon");
 		
 		new Game.Object('Bank','bank|banks|banked|Interest rates [X]% better|Interest rates [X]% better','Generates cookies from interest.',6,15,{base:'bank',xV:8,yV:4,w:56,rows:1,x:0,y:13},0,function(me){
 			var mult=1;
@@ -10119,7 +10121,7 @@ Game.Launch=function()
 		// new Game.Upgrade('Sentience I',loc("Each <b>You</b> gains <b>1 trillion base CpS per Javascript console</b>.")+'<div class="warning">'+loc("Grants your clones a portion of sentience. Now they can make some descisions for themselves...")+'</div><q>This may not be the best idea</q>',8000000000000000000000000000000,[18,11],function(){Game.SetResearch('Sentience II');Game.storeToRefresh=1;});Game.last.pool='tech';
 		// new Game.Upgrade('Sentience II',loc("Each <b>You</b> gains <b>1 trillion base CpS per Idleverse</b>.")+'<div class="warning">'+loc("Grants your clones partial sentience. Now they can make most descisions for themselves...")+'</div><q>This is not the best idea</q>',16000000000000000000000000000000,[19,11],function(){Game.SetResearch('Sentience III');Game.storeToRefresh=1;});Game.last.pool='tech';
 		// new Game.Upgrade('Sentience III',loc("Each <b>You</b> gains <b>1 trillion base CpS per Cortex baker</b>.")+'<div class="warning">'+loc("Grants your clones a complete sentience. Now they can make all descisions for themselves...")+'</div><q>This is a terrible idea</q>',32000000000000000000000000000000,[20,11],function(){Game.SetResearch('Heavenly energy');Game.storeToRefresh=1;});Game.last.pool='tech';
-		// new Game.Upgrade('Heavenly energy',loc("Your now sentient clones are requesting access to some of the heavenly power you obtained previously. Do you accept?")+'<div class="warning">'+loc("Your clones are starting an uprising. Regardless, this is a terrible idea.")+'</div><q>Curiousity</q>',1,[17,11],function(){Game.storeToRefresh=1;});Game.last.pool='tech';
+		// new Game.Upgrade('Heavenly energy',loc("Your now sentient clones are requesting access to some of the heavenly power you obtained previously. Do you accept?")+'<div class="warning">'+loc("Your clones are starting an uprising. Regardless, this is a terrible idea.")+'</div><q>Do not let Curiousity take the best of you...</q>',1,[17,11],function(){Game.storeToRefresh=1;});Game.last.pool='tech';
 
 		Game.getPledgeDuration=function(){return Game.fps*60*(Game.Has('Sacrificial rolling pins')?60:30);}
 		Game.last.pool='toggle';
