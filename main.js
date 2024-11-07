@@ -4151,9 +4151,9 @@ Game.Launch=function()
 				if (Game.resets>=100) Game.Win('Reincarnation');
 				if (Game.resets>=10) Game.Win('Resurrection');
 				if (Game.resets>=1) Game.Win('Rebirth');
-				if (Game.has('Cosmic beginner\'s luck')){
-					Game.gainBuff('Cosmic luck',(3600*3),10);
-				}
+				// if (Game.has('Cosmic beginner\'s luck')){
+				// 	Game.gainBuff('Cosmic luck',(3600*3),10);
+				// }
 
 				var prestigeUpgradesOwned=0;
 				for (var i in Game.Upgrades)
@@ -8855,8 +8855,8 @@ Game.Launch=function()
 			Game.UnlockTiered(this);
 			if (this.amount>=Game.SpecialGrandmaUnlock && Game.Objects['Grandma'].amount>0) Game.Unlock(this.grandma.name);
 		});
-		Game.last.minigameUrl='minigameCaverns.js';
-		Game.last.minigameName=loc("Cookie Cavern");
+		// Game.last.minigameUrl='minigameCaverns.js';
+		// Game.last.minigameName=loc("Cookie Cavern");
 		
 		new Game.Object('Factory','factory|factories|mass-produced|[X] additional patent|[X] additional patents','Produces large quantities of cookies.',5,4,{base:'factory',xV:8,yV:0,w:64,rows:1,x:0,y:-22},3000,function(me){
 			var mult=1;

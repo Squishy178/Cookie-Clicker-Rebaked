@@ -36,20 +36,20 @@ M.launch=function()
 			},
 			'hand of fate':{
 				name:loc("Force the Hand of Fate"),
-				desc:loc("Summon a random golden cookie. Each existing golden cookie makes this spell +%1% more likely to backfire.",15),
-				failDesc:loc("Summon an unlucky wrath cookie.")+(EN?'<q>Even the gods of fate have to obey your demands</q>':''),
+				desc:loc("Summon a random golden cookie. Each existing golden cookie makes this spell +%1% more likely to backfire.",10),
+				failDesc:loc("Remove all positve buffs. If you have no effects, trigger a 3 minute clot")+(EN?'<q>Even the gods of fate have to obey your demands</q>':''),
 				icon:[22,11],
 				costMin:12,
-				costPercent:0.7,
+				costPercent:0.6,
 				failFunc:function(fail)
 				{
-					return fail+0.15*Game.shimmerTypes['golden'].n;
+					return fail+0.10*Game.shimmerTypes['golden'].n;
 				},
 				win:function()
 				{
 					var newShimmer=new Game.shimmer('golden',{noWrath:true});
 					var choices=[];
-					choices.push('frenzy','multiply cookies');
+					choices.push('frenzy','Frenzy');
 					if (!Game.hasBuff('Dragonflight')) choices.push('click frenzy');
 					if (Math.random()<0.1) choices.push('cookie storm','cookie storm','blab');
 					if (Game.BuildingsOwned>=10 && Math.random()<0.25) choices.push('building special');
@@ -65,13 +65,35 @@ M.launch=function()
 				},
 				fail:function()
 				{
-					var newShimmer=new Game.shimmer('golden',{wrath:true});
-					var choices=[];
-					choices.push('clot','ruin cookies');
-					if (Math.random()<0.1) choices.push('cursed finger','blood frenzy');
-					if (Math.random()<0.003) choices.push('free sugar lump');
-					if (Math.random()<0.1) choices=['blab'];
-					newShimmer.force=choose(choices);
+					var changed=0;
+					for (var i in Game.buffs)
+					{
+						var me=Game.buffs[i];
+						me.time=Math.max(me.time,0);
+						changed++;
+					}
+					if (changed==0){
+						Game.gainBuff('clot',60*3,0.5);
+					}else{
+						Game.killBuff('haggler luck');
+						Game.killBuff('pixie luck');
+						Game.killBuff('Frenzy');
+						Game.killBuff("frenzy");
+						Game.killBuff("Lucky");
+						Game.killBuff("Elder frenzy");
+						Game.killBuff("blood frenzy");
+						Game.killBuff("dragon harvest");
+						Game.killBuff("dragonflight");
+						Game.killBuff("everything must go");
+						Game.killBuff("cursed finger");
+						Game.killBuff("cookie storm");
+						Game.killBuff("building buff");
+						Game.killBuff("sugar blessing");
+						Game.killBuff("magic adept");
+						Game.killBuff("devastation");
+						Game.killBuff("sugar frenzy");
+						//Game.killBuff("Cosmic luck");
+					}
 					Game.Popup('<div style="font-size:80%;">'+loc("Backfire!")+'<br>'+loc("Sinister fate!")+'</div>',Game.mouseX,Game.mouseY);
 				},
 			},
@@ -84,16 +106,7 @@ M.launch=function()
 				costPercent:0.2,
 				win:function()
 				{
-					var changed=0;
-					for (var i in Game.buffs)
-					{
-						var me=Game.buffs[i];
-						var gain=Math.min(Game.fps*60*5,me.maxTime*0.2);
-						me.maxTime+=gain;
-						me.time+=gain;
-						changed++;
-					}
-					if (changed==0){Game.Popup('<div style="font-size:80%;">'+loc("No buffs to alter!")+'</div>',Game.mouseX,Game.mouseY);return -1;}
+					c
 					Game.Popup('<div style="font-size:80%;">'+loc("Zap! Buffs lengthened.")+'</div>',Game.mouseX,Game.mouseY);
 				},
 				fail:function()
