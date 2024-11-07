@@ -9,7 +9,7 @@ M.launch=function()
 	{
 		var str='';
 		str+='<style>'+
-		'#cavernBG{background:url('+Game.resPath+'img/shadedBorders.png),url('+Game.resPath+'img/BGcavern.png);background-size:100% 100%,auto;position:absolute;left:0px;right:0px;top:0px;bottom:16px;height:100px;overflow-y:scroll;}'+
+		'#cavernBG{background:url('+Game.resPath+'img/shadedBorders.png),url('+Game.resPath+'img/BGcavern.png);background-size:100% 100%,auto;position:absolute;left:0px;right:0px;top:0px;bottom:16px;}'+
 		'#cavernContent{position:relative;box-sizing:border-box;padding:4px 24px;text-align:center;}'+
 
 		
