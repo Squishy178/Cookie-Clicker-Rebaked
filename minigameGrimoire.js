@@ -32,12 +32,13 @@ M.launch=function()
 					Game.Spend(val);
 					Game.Notify(buff.name,buff.desc,buff.icon,6);
 					Game.Popup('<div style="font-size:80%;">'+loc("Backfire!")+'<br>'+loc("Summoning failed!")+' '+loc("Lost %1!",loc("%1 cookie",LBeautify(val)))+'</div>',Game.mouseX,Game.mouseY);
+					
 				},
 			},
 			'hand of fate':{
 				name:loc("Force the Hand of Fate"),
 				desc:loc("Summon a random golden cookie. Each existing golden cookie makes this spell +%1% more likely to backfire.",10),
-				failDesc:loc("Remove all positve buffs. If you have no effects, trigger a 3 minute clot")+(EN?'<q>Even the gods of fate have to obey your demands</q>':''),
+				failDesc:loc("Remove all positve buffs, and trigger a 2 minute clot")+(EN?'<q>Even the gods of fate have to obey your demands</q>':''),
 				icon:[22,11],
 				costMin:12,
 				costPercent:0.6,
@@ -65,16 +66,8 @@ M.launch=function()
 				},
 				fail:function()
 				{
-					var changed=0;
-					for (var i in Game.buffs)
-					{
-						var me=Game.buffs[i];
-						me.time=Math.max(me.time,0);
-						changed++;
-					}
-					if (changed==0){
-						Game.gainBuff('clot',60*3,0.5);
-					}else{
+					
+						Game.gainBuff('clot',60*2,0.5);
 						Game.killBuff('haggler luck');
 						Game.killBuff('pixie luck');
 						Game.killBuff('Frenzy');
@@ -92,9 +85,9 @@ M.launch=function()
 						Game.killBuff("magic adept");
 						Game.killBuff("devastation");
 						Game.killBuff("sugar frenzy");
-						//Game.killBuff("Cosmic luck");
-					}
+						Game.killBuff("Cosmic luck");
 					Game.Popup('<div style="font-size:80%;">'+loc("Backfire!")+'<br>'+loc("Sinister fate!")+'</div>',Game.mouseX,Game.mouseY);
+					
 				},
 			},
 			'stretch time':{
@@ -122,14 +115,15 @@ M.launch=function()
 					}
 					if (changed==0){Game.Popup('<div style="font-size:80%;">'+loc("No buffs to alter!")+'</div>',Game.mouseX,Game.mouseY);return -1;}
 					Game.Popup('<div style="font-size:80%;">'+loc("Backfire!")+'<br>'+loc("Fizz! Buffs shortened.")+'</div>',Game.mouseX,Game.mouseY);
+					
 				},
 			},
 			'spontaneous edifice':{
 				name:loc("Spontaneous Edifice"),
-				desc:loc("The spell picks a random building you could afford if you had twice your current cookies, and gives it to you for free. The building selected must be under %1, and cannot be your most-built one (unless it is your only one).",500),
+				desc:loc("The spell picks a random building you could afford if you had twice your current cookies, and gives it to you for free."),
 				failDesc:loc("Lose a random building.")+(EN?'<q>As you look around, you see a large building errupt from the earth. Perfect.</q>':''),
 				icon:[24,11],
-				costMin:16,
+				costMin:18,
 				costPercent:0.3,
 				win:function()
 				{
@@ -142,7 +136,7 @@ M.launch=function()
 						if (Game.Objects[i].amount>0) n++;
 					}
 					for (var i in Game.Objects)
-					{if ((Game.Objects[i].amount<max || n==1) && Game.Objects[i].getPrice()<=Game.cookies*2 && Game.Objects[i].amount<500) buildings.push(Game.Objects[i]);}
+					{if (Game.Objects[i].getPrice()<=Game.cookies*2) buildings.push(Game.Objects[i]);}
 					if (buildings.length==0){Game.Popup('<div style="font-size:80%;">'+loc("No buildings to improve!")+'</div>',Game.mouseX,Game.mouseY);return -1;}
 					var building=choose(buildings);
 					building.buyFree(1);
@@ -157,6 +151,7 @@ M.launch=function()
 					var building=choose(buildings);
 					building.sacrifice(1);
 					Game.Popup('<div style="font-size:80%;">'+loc("Backfire!")+'<br>'+loc("One of your %1<br>disappears in a puff of smoke.",building.plural)+'</div>',Game.mouseX,Game.mouseY);
+					
 				},
 			},
 			'haggler\'s charm':{
@@ -177,6 +172,7 @@ M.launch=function()
 					Game.killBuff('Haggler\'s luck');
 					var buff=Game.gainBuff('haggler misery',60*60,5);
 					Game.Popup('<div style="font-size:80%;">'+loc("Backfire!")+'<br>'+loc("Upgrades are pricier!")+'</div>',Game.mouseX,Game.mouseY);
+					
 				},
 			},
 			'summon crafty pixies':{
@@ -197,6 +193,7 @@ M.launch=function()
 					Game.killBuff('Crafty pixies');
 					var buff=Game.gainBuff('pixie misery',60*60,5);
 					Game.Popup('<div style="font-size:80%;">'+loc("Backfire!")+'<br>'+loc("Nasty goblins")+'<br>'+loc("Buildings are pricier!")+'</div>',Game.mouseX,Game.mouseY);
+					
 				},
 			},
 			'gambler\'s fever dream':{
@@ -247,6 +244,7 @@ M.launch=function()
 					var out=Game.PopRandomWrinkler();
 					if (!out){Game.Popup('<div style="font-size:80%;">'+loc("Backfire!")+'<br>'+loc("But no wrinkler was harmed.")+'</div>',Game.mouseX,Game.mouseY);return -1;}
 					Game.Popup('<div style="font-size:80%;">'+loc("Backfire!")+'<br>'+loc("So long, ugly...")+'</div>',Game.mouseX,Game.mouseY);
+					
 				},
 			},
 			'diminish ineptitude':{
@@ -267,6 +265,7 @@ M.launch=function()
 					Game.killBuff('Magic adept');
 					var buff=Game.gainBuff('magic inept',10*60,5);
 					Game.Popup('<div style="font-size:80%;">'+loc("Backfire!")+'<br>'+loc("Ineptitude magnified!")+'</div>',Game.mouseX,Game.mouseY);
+					
 				},
 			},
 		};
@@ -343,7 +342,12 @@ M.launch=function()
 				var rect=l('grimoireSpell'+spell.id).getBounds();
 				Game.SparkleAt((rect.left+rect.right)/2,(rect.top+rect.bottom)/2-24);
 				
-				if (fail) PlaySound('snd/spellFail.mp3',0.75); else PlaySound('snd/spell.mp3',0.75);
+				if (fail){
+					
+					PlaySound('snd/spellFail.mp3',0.75); 
+				}else{
+					PlaySound('snd/spell.mp3',0.75);
+				}
 				return true;
 			}
 			PlaySound('snd/spellFail.mp3',0.75);

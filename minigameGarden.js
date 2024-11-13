@@ -31,16 +31,7 @@ M.launch=function()
 				children:['bakerWheat','thumbcorn','cronerice','bakeberry','clover','goldenClover','chocoroot','tidygrass'],
 				effsStr:'<div class="green">&bull; '+loc("CpS")+' +1%</div>',
 				q:'A plentiful crop whose hardy grain is used to make flour for pastries.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature) M.dropUpgrade('Wheat slims',0.001);
-					var moni=Game.cookiesPs*60*0.5;
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Baker Wheat)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-				},
+				
 			},
 			'thumbcorn':{
 				name:'Thumbcorn',
@@ -53,18 +44,7 @@ M.launch=function()
 				children:['bakerWheat','thumbcorn','cronerice','gildmillet','glovemorel'],
 				effsStr:'<div class="green">&bull; '+loc("cookies/click")+' +2%</div>',
 				q:'A strangely-shaped variant of corn. The amount of strands that can sprout from one seed is usually in the single digits.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*2.5;
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Thumbcorn)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'cronerice':{
 				name:'Cronerice',
@@ -77,18 +57,7 @@ M.launch=function()
 				children:['thumbcorn','gildmillet','elderwort','wardlichen'],
 				effsStr:'<div class="green">&bull; '+loc("%1 CpS",Game.Objects['Grandma'].single)+' +3%</div>',
 				q:'Not only does this wrinkly bulb look nothing like rice, it\'s not even related to it either; its closest extant relative is the weeping willow.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*7.5;
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Cronerice)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'gildmillet':{
 				name:'Gildmillet',
@@ -101,18 +70,7 @@ M.launch=function()
 				children:['clover','goldenClover','shimmerlily'],
 				effsStr:'<div class="green">&bull; '+loc("golden cookie gains")+' +1%</div><div class="green">&bull; '+loc("golden cookie effect duration")+' +0.1%</div>',
 				q:'An ancient staple crop, famed for its golden sheen. Was once used to bake birthday cakes for kings and queens of old.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*7.5;
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Glidmillet)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'clover':{
 				name:'Ordinary clover',
@@ -125,18 +83,7 @@ M.launch=function()
 				children:['goldenClover','greenRot','shimmerlily'],
 				effsStr:'<div class="green">&bull; '+loc("golden cookie frequency")+' +1%</div>',
 				q:'<i>Trifolium repens</i>, a fairly mundane variety of clover with a tendency to produce four leaves. Such instances are considered lucky by some.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*12.5;
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Clover)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'goldenClover':{
 				name:'Golden clover',
@@ -149,18 +96,7 @@ M.launch=function()
 				children:[],
 				effsStr:'<div class="green">&bull; '+loc("golden cookie frequency")+' +3%</div>',
 				q:'A variant of the ordinary clover that traded its chlorophyll for pure organic gold. Tragically short-lived, this herb is an evolutionary dead-end - but at least it looks pretty.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(125/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Golden Clover)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'shimmerlily':{
 				name:'Shimmerlily',
@@ -173,18 +109,7 @@ M.launch=function()
 				children:['elderwort','whiskerbloom','chimerose','cheapcap'],
 				effsStr:'<div class="green">&bull; '+loc("golden cookie gains")+' +1%</div><div class="green">&bull; '+loc("golden cookie frequency")+' +1%</div><div class="green">&bull; '+loc("random drops")+' +1%</div>',
 				q:'These little flowers are easiest to find at dawn, as the sunlight refracting in dew drops draws attention to their pure-white petals.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(60/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Shimmer Lily)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'elderwort':{
 				name:'Elderwort',
@@ -200,18 +125,7 @@ M.launch=function()
 				children:['everdaisy','ichorpuff','shriekbulb'],
 				effsStr:'<div class="green">&bull; '+loc("wrath cookie gains")+' +1%</div><div class="green">&bull; '+loc("wrath cookie frequency")+' +1%</div><div class="green">&bull; '+loc("%1 CpS",Game.Objects['Grandma'].single)+' +1%</div><div class="green">&bull; '+loc("immortal")+'</div><div class="gray">&bull; '+loc("surrounding plants (%1x%1) age %2% faster",[3,3])+'</div>',
 				q:'A very old, long-forgotten subspecies of edelweiss that emits a strange, heady scent. There is some anecdotal evidence that these do not undergo molecular aging.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature){ M.dropUpgrade('Elderwort biscuits',0.01);
-						var moni=Game.cookiesPs*60*(180/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Shimmer Lily)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-					
-				},
+				
 			},
 			'bakeberry':{
 				name:'Bakeberry',
@@ -224,18 +138,7 @@ M.launch=function()
 				children:['queenbeet'],
 				effsStr:'<div class="green">&bull; '+loc("CpS")+' +1%</div><div class="green">&bull;,</div>',
 				q:'A favorite among cooks, this large berry has a crunchy brown exterior and a creamy red center. Excellent in pies or chicken stews.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(45/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Bake Berry)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'chocoroot':{
 				name:'Chocoroot',
@@ -249,18 +152,7 @@ M.launch=function()
 				children:['whiteChocoroot','drowsyfern','queenbeet'],
 				effsStr:'<div class="green">&bull; '+loc("CpS")+' +1%</div>'+loc("predictable growth")+'</div>',
 				q:'A tangly bramble coated in a sticky, sweet substance. Unknown genetic ancestry. Children often pick these from fields as-is as a snack.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*7.5;
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Chocoroot)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'whiteChocoroot':{
 				name:'White chocoroot',
@@ -274,18 +166,7 @@ M.launch=function()
 				children:['whiskerbloom','tidygrass'],
 				effsStr:'<div class="green">&bull; '+loc("golden cookie gains")+' +1%</div><div class="green">&bull;,</div><div class="green">&bull; '+loc("predictable growth")+'</div>',
 				q:'A pale, even sweeter variant of the chocoroot. Often impedes travelers with its twisty branches.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(15/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(White Chocroot)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			
 			'whiteMildew':{
@@ -348,18 +229,7 @@ M.launch=function()
 				children:['chimerose','nursetulip'],
 				effsStr:'<div class="green">&bull; '+loc("milk effects")+' +0.2%</div>',
 				q:'Squeezing the translucent pods makes them excrete a milky liquid, while producing a faint squeak akin to a cat\'s meow.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(20/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Wiskerbloom)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'chimerose':{
 				name:'Chimerose',
@@ -372,18 +242,7 @@ M.launch=function()
 				children:['chimerose'],
 				effsStr:'<div class="green">&bull; '+loc("reindeer gains")+' +1%</div><div class="green">&bull; '+loc("reindeer frequency")+' +1%</div>',
 				q:'Originating in the greener flanks of polar mountains, this beautiful flower with golden accents is fragrant enough to make any room feel a little bit more festive.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(15/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Chimerose)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'nursetulip':{
 				name:'Nursetulip',
@@ -396,18 +255,7 @@ M.launch=function()
 				children:[],
 				effsStr:'<div class="green">&bull; '+loc("surrounding plants (%1x%1) are %2% more efficient",[3,20])+'</div><div class="red">&bull; '+loc("CpS")+' -2%</div>',
 				q:'This flower grows an intricate root network that distributes nutrients throughout the surrounding soil. The reason for this seemingly altruistic behavior is still unknown.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(40/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Nurse Tulip)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'drowsyfern':{
 				name:'Drowsyfern',
@@ -424,11 +272,6 @@ M.launch=function()
 				{
 					if (age>=this.mature){
 						M.dropUpgrade('Fern tea',0.01);
-						var moni=Game.cookiesPs*60*(90/2);
-						if (moni!=0){
-							Game.Earn(moni);
-							Game.Popup('(DrowsyFern)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
 					}
 					
 				},
@@ -444,18 +287,7 @@ M.launch=function()
 				children:['wardlichen'],
 				effsStr:'<div class="gray">&bull; '+loc("wrath cookie frequency")+' -2%</div><div class="gray">&bull; '+loc("wrinkler spawn rate")+' -15%</div>',
 				q:'The metallic stench that emanates from this organism has been known to keep insects and slugs away.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(10/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Wardlichen)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'keenmoss':{
 				name:'Keenmoss',
@@ -468,18 +300,7 @@ M.launch=function()
 				children:['drowsyfern','wardlichen','keenmoss'],
 				effsStr:'<div class="green">&bull; '+loc("random drops")+' +3%</div>',
 				q:'Fuzzy to the touch and of a vibrant green. In plant symbolism, keenmoss is associated with good luck for finding lost objects.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(50/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Keenmoss)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'queenbeet':{
 				name:'Queenbeet',
@@ -488,23 +309,12 @@ M.launch=function()
 				costM:1000000000,
 				ageTick:1,
 				ageTickR:0.4,
-				mature:80,
+				mature:55,
 				noContam:true,
 				children:['duketater','queenbeetLump','shriekbulb'],
 				effsStr:'<div class="green">&bull; '+loc("golden cookie effect duration")+' +0.3%</div><div class="red">&bull; '+loc("CpS")+' -2%</div><div class="green">&bull;,</div>',
 				q:'A delicious taproot used to prepare high-grade white sugar. Entire countries once went to war over these.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(90/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Queenbeet)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+			
 			},
 			'queenbeetLump':{
 				name:'Juicy queenbeet',
@@ -514,7 +324,7 @@ M.launch=function()
 				costM:1000000000000,
 				ageTick:0.04,
 				ageTickR:0.08,
-				mature:85,
+				mature:60,
 				noContam:true,
 				children:[],
 				effsStr:'<div class="red">&bull; '+loc("CpS")+' -10%</div><div class="red">&bull; '+loc("surrounding plants (%1x%1) are %2% less efficient",[3,20])+'</div><div class="green">&bull; '+loc("harvest when mature for a sugar lump")+'</div>',
@@ -525,12 +335,6 @@ M.launch=function()
 					{
 						Game.gainLumps(1);
 						Game.Popup('(Juicy queenbeet)<br>Sweet!<div style="font-size:65%;">Found 1 sugar lump!</div>',Game.mouseX,Game.mouseY);
-						var moni=Game.cookiesPs*60*(120/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Juicy Queenbeet)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
 					}
 				},
 			},
@@ -546,18 +350,7 @@ M.launch=function()
 				children:['shriekbulb'],
 				effsStr:'<div class="green">&bull; Harvest for furhter extra cookies than usual</div>',
 				q:'A rare, rich-tasting tuber fit for a whole meal, as long as its strict harvesting schedule is respected. Its starch has fascinating baking properties.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(360);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Duketater)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'crumbspore':{
 				name:'Crumbspore',
@@ -599,18 +392,7 @@ M.launch=function()
 				children:['crumbspore','doughshroom','foolBolete','shriekbulb'],
 				effsStr:'<div class="green">&bull;Grants slightly extra cookies upon harvest</div><div class="red">&bull; '+loc("may overtake nearby plants")+'</div>',
 				q:'Jammed full of warm spores; some forest walkers often describe the smell as similar to passing by a bakery.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(66.6);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Doughshroom)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'glovemorel':{
 				name:'Glovemorel',
@@ -624,18 +406,7 @@ M.launch=function()
 				children:[],
 				effsStr:'<div class="green">&bull; '+loc("cookies/click")+' +4%</div><div class="green">&bull; '+loc("%1 CpS",Game.Objects['Cursor'].single)+' +1%</div><div class="red">&bull; '+loc("CpS")+' -1%</div>',
 				q:'Touching its waxy skin reveals that the interior is hollow and uncomfortably squishy.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(30/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Glovemorel)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'cheapcap':{
 				name:'Cheapcap',
@@ -649,18 +420,7 @@ M.launch=function()
 				children:[],
 				effsStr:'<div class="green">&bull; '+(EN?'buildings and upgrades are 0.2% cheaper':(loc("building costs")+' -0.2% / '+loc("upgrade costs")+' -0.2%'))+'</div><div class="red">&bull; '+loc("cannot handle cold climates; %1% chance to die when frozen",15)+'</div>',
 				q:'Small, tough, and good in omelettes. Some historians propose that the heads of dried cheapcaps were once used as currency in some bronze age societies.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(40/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Cheapcap)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+			
 			},
 			'foolBolete':{
 				name:'Fool\'s bolete',
@@ -674,18 +434,7 @@ M.launch=function()
 				children:[],
 				effsStr:'<div class="green">&bull; '+loc("golden cookie frequency")+' +2%</div><div class="red">&bull; '+loc("golden cookie gains")+' -5%</div><div class="red">&bull; '+loc("golden cookie duration")+' -2%</div><div class="red">&bull; '+loc("golden cookie effect duration")+' -2%</div>',
 				q:'Named for its ability to fool mushroom pickers. The fool\'s bolete is not actually poisonous, it\'s just extremely bland.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(15/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Fool\'s Bolete)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'wrinklegill':{
 				name:'Wrinklegill',
@@ -699,18 +448,7 @@ M.launch=function()
 				children:['elderwort','shriekbulb'],
 				effsStr:'<div class="gray">&bull; '+loc("wrinkler spawn rate")+' +2%</div><div class="gray">&bull; '+loc("wrinkler appetite")+' +1%</div>',
 				q:'This mushroom\'s odor resembles that of a well-done steak, and is said to whet the appetite - making one\'s stomach start gurgling within seconds.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(20/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Wrinklegill)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'greenRot':{
 				name:'Green rot',
@@ -744,15 +482,7 @@ M.launch=function()
 				q:'A nasty vegetable with a dreadful quirk : its flesh resonates with a high-pitched howl whenever it is hit at the right angle by sunlight, moonlight, or even a slight breeze.',
 				onHarvest:function(x,y,age)
 				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(60/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Shriekbulb)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
+					
 				},
 			},
 			'tidygrass':{
@@ -766,18 +496,7 @@ M.launch=function()
 				children:['everdaisy'],
 				effsStr:'<div class="green">&bull; '+loc("surrounding tiles (%1x%1) develop no weeds or fungus",5)+'</div>',
 				q:'The molecules this grass emits are a natural weedkiller. Its stems grow following a predictable pattern, making it an interesting -if expensive- choice for a lawn grass.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(90/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Tidygrass)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 			'everdaisy':{
 				name:'Everdaisy',
@@ -793,18 +512,7 @@ M.launch=function()
 				children:[],
 				effsStr:'<div class="green">&bull; '+loc("surrounding tiles (%1x%1) develop no weeds or fungus",3)+'</div><div class="green">&bull; '+loc("immortal")+'</div>',
 				q:'While promoted by some as a superfood owing to its association with longevity and intriguing geometry, this elusive flower is actually mildly toxic.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature)
-					{
-						var moni=Game.cookiesPs*60*(180/2);
-						if (moni!=0)
-						{
-							Game.Earn(moni);
-							Game.Popup('(Everdaisy)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+			
 			},
 			'ichorpuff':{
 				name:'Ichorpuff',
@@ -818,17 +526,7 @@ M.launch=function()
 				children:[],
 				effsStr:'<div class="green">&bull; '+loc("surrounding plants (%1x%1) age %2% slower",[3,50])+'</div><div class="red">&bull; '+loc("surrounding plants (%1x%1) are %2% less efficient",[3,50])+'</div>',
 				q:'This puffball mushroom contains sugary spores, but it never seems to mature to bursting on its own. Surrounding plants under its influence have a very slow metabolism, reducing their effects but lengthening their lifespan.',
-				onHarvest:function(x,y,age)
-				{
-					if (age>=this.mature){
-						M.dropUpgrade('Ichor syrup',0.005);
-						var moni=Game.cookiesPs*60*(120/2);
-						if (moni!=0){
-							Game.Earn(moni);
-							Game.Popup('(Ichorpuff)<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
-						}
-					}
-				},
+				
 			},
 		};
 		M.plantsById=[];var n=0;
@@ -1160,11 +858,11 @@ M.launch=function()
 			'pebbles':{
 				name:loc("Pebbles"),
 				icon:3,
-				tick:5,
+				tick:4,
 				effMult:0.25,
 				weedMult:0.1,
 				req:200,
-				effsStr:'<div class="gray">&bull; '+loc("tick every %1",'<b>'+Game.sayTime(5*60*Game.fps)+'</b>')+'</div><div class="red">&bull; '+loc("passive plant effects")+' <b>-75%</b></div><div class="green">&bull; '+loc("<b>%1% chance</b> of collecting seeds automatically when plants expire",35)+'</div><div class="green">&bull; '+loc("weed growth")+' <b>-90%</b></div>',
+				effsStr:'<div class="gray">&bull; '+loc("tick every %1",'<b>'+Game.sayTime(4*60*Game.fps)+'</b>')+'</div><div class="red">&bull; '+loc("passive plant effects")+' <b>-75%</b></div><div class="green">&bull; '+loc("<b>%1% chance</b> of collecting seeds automatically when plants expire",50)+'</div><div class="green">&bull; '+loc("weed growth")+' <b>-90%</b></div>',
 				q:loc("Dry soil made of small rocks tightly packed together. Not very conducive to plant health, but whatever falls off your crops will be easy to retrieve.<br>Useful if you're one of those farmers who just want to find new seeds without having to tend their garden too much."),
 			},
 			'woodchips':{
@@ -1811,6 +1509,19 @@ M.launch=function()
 					M.harvestsTotal++;
 					if (M.harvestsTotal>=100) Game.Win('Botany enthusiast');
 					if (M.harvestsTotal>=1000) Game.Win('Green, aching thumb');
+					if (!me.weed || me.weed==undefined){
+						if (me=='duketater'){
+							var moni=Game.cookiesPs*60*(2*(me.cost/3));
+						}else{
+							var moni=Game.cookiesPs*60*(me.cost/2);
+						}
+						
+						if (moni!=0)
+						{
+							Game.Earn(moni);
+							Game.Popup('('+me.name+')<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
+						}
+					}
 				}
 				
 				M.plot[y][x]=[0,0];
@@ -2142,7 +1853,7 @@ M.launch=function()
 									//die of old age
 									M.plot[y][x]=[0,0];
 									if (me.onDie) me.onDie(x,y);
-									if (M.soilsById[M.soil].key=='pebbles' && Math.random()<0.35)
+									if (M.soilsById[M.soil].key=='pebbles' && Math.random()<0.5)
 									{
 										if (M.unlockSeed(me)) Game.Popup(loc("Unlocked %1 seed.",me.name),Game.mouseX,Game.mouseY);
 									}
