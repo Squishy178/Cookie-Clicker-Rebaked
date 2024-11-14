@@ -10121,7 +10121,7 @@ Game.Launch=function()
 			{
 				Game.researchT=Game.baseResearchTime;
 				if (Game.Has('Persistent memory')) Game.researchT=Math.ceil(Game.baseResearchTime/10);
-				if (Game.Has('Memorization')) Game.researchT=Math.ceil(Game.researchT/1+(Game.resets/(Math.log(Game.prestige))));
+				if (Game.Has('Memorization')) Game.researchT=Math.ceil(Game.researchT/1+3*(Math.log(Game.prestige)));
 				if (Game.Has('Ultrascience')) Game.researchT=Game.fps*5;
 				Game.nextResearch=Game.Upgrades[what].id;
 				Game.Notify(loc("Research has begun"),loc("Your bingo center/research facility is conducting experiments."),[9,0]);
