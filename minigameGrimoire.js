@@ -95,7 +95,7 @@ M.launch=function()
 			'stretch time':{
 				name:loc("Stretch Time"),
 				desc:loc("All active buffs gain %1% more time (up to %2 more minutes).",[20,5]),
-				failDesc:loc("All active buffs are shortened by %1% (up to %2 minutes shorter).",[30,10])+(EN?'<q>Now we know why all the wizards are so old...</q>':''),
+				failDesc:loc("All active buffs are shortened by %1% (up to %2 minutes shorter).",[40,15])+(EN?'<q>Now we know why all the wizards are so old...</q>':''),
 				icon:[23,11],
 				costMin:9,
 				costPercent:0.2,
@@ -106,7 +106,7 @@ M.launch=function()
 					for (var i in Game.buffs)
 					{
 						var me=Game.buffs[i];
-						var gain=Math.min(Game.fps*60*10,me.time*0.2);
+						var gain=Math.min(Game.fps*60*10,me.time*1.2);
 						me.time+=gain;
 						me.time=Math.max(me.time,0);
 						changed++;
@@ -120,7 +120,7 @@ M.launch=function()
 					for (var i in Game.buffs)
 					{
 						var me=Game.buffs[i];
-						var loss=Math.min(Game.fps*60*10,me.time*0.3);
+						var loss=Math.min(Game.fps*60*15,me.time*0.4);
 						me.time-=loss;
 						me.time=Math.max(me.time,0);
 						changed++;
