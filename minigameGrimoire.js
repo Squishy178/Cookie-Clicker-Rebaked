@@ -17,6 +17,7 @@ M.launch=function()
 				icon:[21,11],
 				costMin:2,
 				costPercent:0.4,
+				condition:true,
 				win:function()
 				{
 					var val=Math.max(7,Math.min(Game.cookies*0.3,Game.cookiesPs*60*30));
@@ -42,6 +43,7 @@ M.launch=function()
 				icon:[22,11],
 				costMin:12,
 				costPercent:0.6,
+				condition:true,
 				failFunc:function(fail)
 				{
 					return fail+0.10*Game.shimmerTypes['golden'].n;
@@ -52,16 +54,16 @@ M.launch=function()
 					var choices=[];
 					choices.push('frenzy','Frenzy');
 					if (!Game.hasBuff('Dragonflight')) choices.push('click frenzy');
-					if (Math.random()<0.1) choices.push('cookie storm','cookie storm','blab');
+					if (Math.random()<0.1) choices.push('cookie storm','cookie storm');
 					if (Game.BuildingsOwned>=10 && Math.random()<0.25) choices.push('building special');
 					//if (Math.random()<0.2) choices.push('clot','cursed finger','ruin cookies');
-					if (Math.random()<0.15) choices=['cookie storm drop'];
-					if (Math.random()<0.0001) choices.push('free sugar lump');
+					// if (Math.random()<1) choices=['cookie storm drop'];
+					if (Math.random()<0.001) choices.push('free sugar lump');
 					newShimmer.force=choose(choices);
-					if (newShimmer.force=='cookie storm drop')
-					{
-						newShimmer.sizeMult=Math.random()*0.75+0.25;
-					}
+					// if (newShimmer.force=='cookie storm drop')
+					// {
+					// 	newShimmer.sizeMult=Math.random()*0.75+0.25;
+					// }
 					Game.Popup('<div style="font-size:80%;">'+loc("Promising fate!")+'</div>',Game.mouseX,Game.mouseY);
 				},
 				fail:function()
@@ -72,7 +74,7 @@ M.launch=function()
 						Game.killBuff('pixie luck');
 						Game.killBuff('Frenzy');
 						Game.killBuff("frenzy");
-						Game.killBuff("Lucky");
+						Game.killBuff("click frenzy");
 						Game.killBuff("Elder frenzy");
 						Game.killBuff("blood frenzy");
 						Game.killBuff("dragon harvest");
@@ -86,8 +88,8 @@ M.launch=function()
 						Game.killBuff("devastation");
 						Game.killBuff("sugar frenzy");
 						Game.killBuff("Cosmic luck");
-					Game.Popup('<div style="font-size:80%;">'+loc("Backfire!")+'<br>'+loc("Sinister fate!")+'</div>',Game.mouseX,Game.mouseY);
-					
+						Game.killBuff("building buff");
+						Game.Popup('<div style="font-size:80%;">'+loc("Backfire!")+'<br>'+loc("Sinister fate!")+'</div>',Game.mouseX,Game.mouseY);
 				},
 			},
 			'stretch time':{
@@ -97,9 +99,19 @@ M.launch=function()
 				icon:[23,11],
 				costMin:9,
 				costPercent:0.2,
+				condition:true,
 				win:function()
 				{
-					c
+					var changed=0;
+					for (var i in Game.buffs)
+					{
+						var me=Game.buffs[i];
+						var gain=Math.min(Game.fps*60*10,me.time*0.2);
+						me.time+=gain;
+						me.time=Math.max(me.time,0);
+						changed++;
+					}
+					if (changed==0){Game.Popup('<div style="font-size:80%;">'+loc("No buffs to alter!")+'</div>',Game.mouseX,Game.mouseY);return -1;}
 					Game.Popup('<div style="font-size:80%;">'+loc("Zap! Buffs lengthened.")+'</div>',Game.mouseX,Game.mouseY);
 				},
 				fail:function()
@@ -125,6 +137,7 @@ M.launch=function()
 				icon:[24,11],
 				costMin:18,
 				costPercent:0.3,
+				condition:true,
 				win:function()
 				{
 					var buildings=[];
@@ -161,6 +174,7 @@ M.launch=function()
 				icon:[25,11],
 				costMin:10,
 				costPercent:0.1,
+				condition:true,
 				win:function()
 				{
 					Game.killBuff('Haggler\'s misery');
@@ -182,6 +196,7 @@ M.launch=function()
 				icon:[26,11],
 				costMin:10,
 				costPercent:0.2,
+				condition:true,
 				win:function()
 				{
 					Game.killBuff('Nasty goblins');
@@ -203,6 +218,7 @@ M.launch=function()
 				icon:[27,11],
 				costMin:3,
 				costPercent:0.05,
+				condition:true,
 				win:function()
 				{
 					var spells=[];
@@ -233,6 +249,7 @@ M.launch=function()
 				icon:[28,11],
 				costMin:30,
 				costPercent:0.01,
+				condition:(Game.elderWrath>0),
 				win:function()
 				{
 					var out=Game.SpawnWrinkler();
@@ -254,6 +271,7 @@ M.launch=function()
 				icon:[29,11],
 				costMin:5,
 				costPercent:0.2,
+				condition:true,
 				win:function()
 				{
 					Game.killBuff('Magic inept');
@@ -428,6 +446,8 @@ M.launch=function()
 				var me=M.spells[i];
 				var icon=me.icon||[28,12];
 				str+='<div class="grimoireSpell titleFont" id="grimoireSpell'+me.id+'" '+Game.getDynamicTooltip('Game.ObjectsById['+M.parent.id+'].minigame.spellTooltip('+me.id+')','this')+'><div class="usesIcon shadowFilter grimoireIcon" style="background-position:'+(-icon[0]*48)+'px '+(-icon[1]*48)+'px;"></div><div class="grimoirePrice" id="grimoirePrice'+me.id+'">-</div></div>';
+				
+				
 			}
 			str+='</div>';
 			var icon=[29,14];
@@ -444,6 +464,7 @@ M.launch=function()
 		{
 			var me=M.spells[i];
 			AddEvent(l('grimoireSpell'+me.id),'click',function(spell){return function(){PlaySound('snd/tick.mp3');M.castSpell(spell);}}(me));
+				
 		}
 		
 		M.refillTooltip=function(){

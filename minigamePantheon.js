@@ -18,6 +18,9 @@ M.launch=function()
 				desc3:'<span class="green">'+loc("+%1% base CpS.",5)+'</span>',
 				descAfter:'<span class="red">'+loc("If a golden cookie is clicked, this spirit is unslotted and all worship swaps will be used up.")+'</span>',
 				quote:'An immortal life spent focusing on the inner self, away from the distractions of material wealth.',
+				favordesc1:'<span class="green">'+loc("+%1% base CpS.",45)+'</span>',
+				favordesc2:'<span class="green">'+loc("+%1% base CpS.",30)+'</span>',
+				favordesc3:'<span class="green">'+loc("+%1% base CpS.",15)+'</span>',
 			},
 			'decadence':{
 				name:'Vomitrax, Spirit of Decadence',
@@ -26,6 +29,9 @@ M.launch=function()
 				desc2:'<span class="green">'+loc("Golden and wrath cookie effect duration +%1%.",5)+'</span> <span class="red">'+loc("Buildings grant -%1% CpS.",5)+'</span>',
 				desc3:'<span class="green">'+loc("Golden and wrath cookie effect duration +%1%.",2)+'</span> <span class="red">'+loc("Buildings grant -%1% CpS.",2)+'</span>',
 				quote:'This sleazy spirit revels in the lust for quick easy gain and contempt for the value of steady work.',
+				favordesc1:'<span class="green">'+loc("Golden and wrath cookie effect duration +%1%.",21)+'</span> <span class="red">'+loc("Buildings grant -%1% CpS.",7)+'</span>',
+				favordesc2:'<span class="green">'+loc("Golden and wrath cookie effect duration +%1%.",15)+'</span> <span class="red">'+loc("Buildings grant -%1% CpS.",5)+'</span>',
+				favordesc3:'<span class="green">'+loc("Golden and wrath cookie effect duration +%1%.",6)+'</span> <span class="red">'+loc("Buildings grant -%1% CpS.",2)+'</span>',
 			},
 			'ruin':{
 				name:'Godzamok, Spirit of Ruin',
@@ -35,6 +41,9 @@ M.launch=function()
 				desc2:'<span class="green">'+loc("Buff boosts clicks by +%1% for every building sold for %2 seconds.",[0.5,20])+'</span> <span class="red">'+loc("Buildings grant -%1% CpS.",2)+'</span>',
 				desc3:'<span class="green">'+loc("Buff boosts clicks by +%1% for every building sold for %2 seconds.",[0.25,20])+'</span> <span class="red">'+loc("Buildings grant -%1% CpS.",1)+'</span>',
 				quote:'The embodiment of natural disasters. An impenetrable motive drives the devastation caused by this spirit.',
+				favordesc1:'<span class="green">'+loc("Buff boosts clicks by +%1% for every building sold for %2 seconds.",[3,20])+'</span> <span class="red">'+loc("Buildings grant -%1% CpS.",3)+'</span>',
+				favordesc2:'<span class="green">'+loc("Buff boosts clicks by +%1% for every building sold for %2 seconds.",[1.5,20])+'</span> <span class="red">'+loc("Buildings grant -%1% CpS.",2)+'</span>',
+				favordesc3:'<span class="green">'+loc("Buff boosts clicks by +%1% for every building sold for %2 seconds.",[0.75,20])+'</span> <span class="red">'+loc("Buildings grant -%1% CpS.",1)+'</span>',
 			},
 			'ages':{
 				name:'Cyclius, Spirit of Ages',
@@ -62,6 +71,9 @@ M.launch=function()
 				desc2:'<span class="green">'+loc("Medium boost.")+'</span> <span class="red">'+loc("Switching seasons is %1% pricier.",50)+'</span>',
 				desc3:'<span class="green">'+loc("Small boost.")+'</span> <span class="red">'+loc("Switching seasons is %1% pricier.",25)+'</span>',
 				quote:'This is the spirit of merry getaways and regretful Monday mornings.',
+				favordesc1:'<span class="green">'+loc("Massive boost.")+'</span> <span class="red">'+loc("Switching seasons is %1% pricier.",100)+'</span>',
+				favordesc2:'<span class="green">'+loc("Huge boost.")+'</span> <span class="red">'+loc("Switching seasons is %1% pricier.",50)+'</span>',
+				favordesc3:'<span class="green">'+loc("Large boost.")+'</span> <span class="red">'+loc("Switching seasons is %1% pricier.",25)+'</span>',
 			},
 			'creation':{
 				name:'Dotjeiess, Spirit of Creation',
@@ -70,6 +82,9 @@ M.launch=function()
 				desc2:'<span class="green">'+loc("All buildings are <b>%1% cheaper</b>.",5)+'</span> <span class="red">'+loc("Heavenly chips have %1% less effect.",20)+'</span>',
 				desc3:'<span class="green">'+loc("All buildings are <b>%1% cheaper</b>.",2)+'</span> <span class="red">'+loc("Heavenly chips have %1% less effect.",10)+'</span>',
 				quote:'All things that be and ever will be were scripted long ago by this spirit\'s inscrutable tendrils.',
+				favordesc1:'<span class="green">'+loc("All buildings are <b>%1% cheaper</b>.",21)+'</span> <span class="red">'+loc("Heavenly chips have %1% less effect.",30)+'</span>',
+				favordesc2:'<span class="green">'+loc("All buildings are <b>%1% cheaper</b>.",15)+'</span> <span class="red">'+loc("Heavenly chips have %1% less effect.",20)+'</span>',
+				favordesc3:'<span class="green">'+loc("All buildings are <b>%1% cheaper</b>.",6)+'</span> <span class="red">'+loc("Heavenly chips have %1% less effect.",10)+'</span>',
 			},
 			'labor':{
 				name:'Muridal, Spirit of Labor',
@@ -78,6 +93,9 @@ M.launch=function()
 				desc2:'<span class="green">'+loc("Clicking is <b>%1%</b> more powerful.",10)+'</span> <span class="red">'+loc("Buildings produce %1% less.",2)+'</span>',
 				desc3:'<span class="green">'+loc("Clicking is <b>%1%</b> more powerful.",5)+'</span> <span class="red">'+loc("Buildings produce %1% less.",1)+'</span>',
 				quote:'This spirit enjoys a good cheese after a day of hard work.',
+				favordesc1:'<span class="green">'+loc("Clicking is <b>%1%</b> more powerful.",45)+'</span> <span class="red">'+loc("Buildings produce %1% less.",3)+'</span>',
+				favordesc2:'<span class="green">'+loc("Clicking is <b>%1%</b> more powerful.",30)+'</span> <span class="red">'+loc("Buildings produce %1% less.",2)+'</span>',
+				favordesc3:'<span class="green">'+loc("Clicking is <b>%1%</b> more powerful.",15)+'</span> <span class="red">'+loc("Buildings produce %1% less.",1)+'</span>',
 			},
 			'industry':{
 				name:'Jeremy, Spirit of Industry',
@@ -86,6 +104,9 @@ M.launch=function()
 				desc2:'<span class="green">'+loc("Buildings produce %1% more.",6)+'</span> <span class="red">'+loc("Golden and wrath cookies appear %1% less.",6)+'</span>',
 				desc3:'<span class="green">'+loc("Buildings produce %1% more.",3)+'</span> <span class="red">'+loc("Golden and wrath cookies appear %1% less.",3)+'</span>',
 				quote:'While this spirit has many regrets, helping you rule the world through constant industrialization is not one of them.',
+				favordesc1:'<span class="green">'+loc("Buildings produce %1% more.",30)+'</span> <span class="red">'+loc("Golden and wrath cookies appear %1% less.",10)+'</span>',
+				favordesc2:'<span class="green">'+loc("Buildings produce %1% more.",18)+'</span> <span class="red">'+loc("Golden and wrath cookies appear %1% less.",6)+'</span>',
+				favordesc3:'<span class="green">'+loc("Buildings produce %1% more.",9)+'</span> <span class="red">'+loc("Golden and wrath cookies appear %1% less.",3)+'</span>',
 			},
 			'mother':{
 				name:'Mokalsium, Mother Spirit',
@@ -94,6 +115,9 @@ M.launch=function()
 				desc2:'<span class="green">'+loc("Milk is <b>%1% more powerful</b>.",5)+'</span> <span class="red">'+loc("Golden and wrath cookies appear %1% less.",10)+'</span>',
 				desc3:'<span class="green">'+loc("Milk is <b>%1% more powerful</b>.",3)+'</span> <span class="red">'+loc("Golden and wrath cookies appear %1% less.",5)+'</span>',
 				quote:'A caring spirit said to contain itself, inwards infinitely.',
+				favordesc1:'<span class="green">'+loc("Milk is <b>%1% more powerful</b>.",30)+'</span> <span class="red">'+loc("Golden and wrath cookies appear %1% less.",15)+'</span>',
+				favordesc2:'<span class="green">'+loc("Milk is <b>%1% more powerful</b>.",15)+'</span> <span class="red">'+loc("Golden and wrath cookies appear %1% less.",10)+'</span>',
+				favordesc3:'<span class="green">'+loc("Milk is <b>%1% more powerful</b>.",9)+'</span> <span class="red">'+loc("Golden and wrath cookies appear %1% less.",5)+'</span>',
 			},
 			'scorn':{
 				name:'Skruuia, Spirit of Scorn',
@@ -103,6 +127,9 @@ M.launch=function()
 				desc2:'<span class="green">'+loc("Wrinklers appear %1% faster and digest %2% more cookies.",[100,10])+'</span>',
 				desc3:'<span class="green">'+loc("Wrinklers appear %1% faster and digest %2% more cookies.",[50,5])+'</span>',
 				quote:'This spirit enjoys poking foul beasts and watching them squirm, but has no love for its own family.',
+				favordesc1:'<span class="green">'+loc("Wrinklers appear %1% faster and digest %2% more cookies.",[450,45])+'</span>',
+				favordesc2:'<span class="green">'+loc("Wrinklers appear %1% faster and digest %2% more cookies.",[300,30])+'</span>',
+				favordesc3:'<span class="green">'+loc("Wrinklers appear %1% faster and digest %2% more cookies.",[150,15])+'</span>',
 			},
 			'order':{
 				name:'Rigidel, Spirit of Order',
@@ -117,7 +144,21 @@ M.launch=function()
 				desc3:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*20*Game.fps))+'</span>'+'<span class="red">'+'</span>',
 				descAfter:'<span class="red">'+loc("Effect is only active when your total amount of buildings ends with 0.")+'</span>',
 				quote:'You will find that life gets just a little bit sweeter if you can motivate this spirit with tidy numbers and properly-filled tax returns.',
+				favordesc1:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*180*Game.fps))+'</span> <span class="red">'+'</span>',
+				favordesc2:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*120*Game.fps))+'</span> <span class="red">'+'</span>',
+				favordesc3:'<span class="green">'+loc("Sugar lumps ripen <b>%1</b> sooner.",Game.sayTime(60*60*Game.fps))+'</span> <span class="red">'+'</span>',
 			},
+			// 'soul':{
+			// 	name:'Trauncia, Spirit of Souls',
+			// 	icon:[29,18],
+			// 	desc1:'<span class="green">'+loc("Worship swaps recharge <b>%1% faster</b>.",50)+'</span> <span class="red">'+loc("Cookie upgrades are %1% less effective.",15)+'</span>',
+			// 	desc2:'<span class="green">'+loc("Worship swaps recharge <b>%1% faster</b>.",25)+'</span> <span class="red">'+loc("Cookie upgrades are %1% less effective.",10)+'</span>',
+			// 	desc3:'<span class="green">'+loc("Worship swaps recharge <b>%1% faster</b>.",10)+'</span> <span class="red">'+loc("Cookie upgrades are %1% less effective.",5)+'</span>',
+			// 	quote:'A caring spirit said to contain itself, inwards infinitely.',
+			// 	favordesc1:'<span class="green">'+loc("Milk is <b>%1% more powerful</b>.",30)+'</span> <span class="red">'+loc("Golden and wrath cookies appear %1% less.",15)+'</span>',
+			// 	favordesc2:'<span class="green">'+loc("Milk is <b>%1% more powerful</b>.",15)+'</span> <span class="red">'+loc("Golden and wrath cookies appear %1% less.",10)+'</span>',
+			// 	favordesc3:'<span class="green">'+loc("Milk is <b>%1% more powerful</b>.",9)+'</span> <span class="red">'+loc("Golden and wrath cookies appear %1% less.",5)+'</span>',
+			// },
 		};
 		M.godsById=[];var n=0;
 		for (var i in M.gods){var it=M.gods[i];it.id=n;it.name=loc(FindLocStringByPart('GOD '+(it.id+1)+' NAME'));it.quote=loc(FindLocStringByPart('GOD '+(it.id+1)+' QUOTE'));it.slot=-1;M.godsById[n]=it;n++;}
@@ -127,7 +168,6 @@ M.launch=function()
 		M.slot[0]=-1;//diamond socket
 		M.slot[1]=-1;//ruby socket
 		M.slot[2]=-1;//jade socket
-		
 		M.slotNames=[
 			'Diamond','Ruby','Jade'
 		];
@@ -142,17 +182,33 @@ M.launch=function()
 			return function(){
 				var me=M.godsById[id];
 				me.icon=me.icon||[0,0];
-				var str='<div style="padding:8px 4px;min-width:350px;" id="tooltipGod">'+
-				'<div class="icon" style="float:left;margin-left:-8px;margin-top:-8px;background-position:'+(-me.icon[0]*48)+'px '+(-me.icon[1]*48)+'px;"></div>'+
-				'<div class="name">'+me.name+'</div>'+
-				'<div class="line"></div><div class="description"><div style="margin:6px 0px;font-weight:bold;">'+loc("Effects:")+'</div>'+
+				if (Game.favoredGods.includes(id)){
+					var str='<div style="padding:8px 4px;min-width:350px;" id="tooltipGod">'+
+					'<div class="icon" style="float:left;margin-left:-8px;margin-top:-8px;background-position:'+(-me.icon[0]*48)+'px '+(-me.icon[1]*48)+'px;"></div>'+
+					'<div class="icon" style="float:left;margin-left:-52px;margin-top:-8px;background-position:'+(-30*48)+'px '+(-11*48)+'px;"></div>'+
+					'<div class="name">'+me.name+'</div>'+
+					'<div class="line"></div><div class="description"><div style="margin:6px 0px;font-weight:bold;">'+loc("Effects:")+'</div>'+
+					(me.descBefore?('<div class="templeEffect">'+me.descBefore+'</div>'):'')+
+					(me.favordesc1?('<div class="templeEffect templeEffect1"><div class="usesIcon shadowFilter templeGem templeGem1"></div>'+me.favordesc1+'</div>'):'')+
+					(me.favordesc2?('<div class="templeEffect templeEffect2"><div class="usesIcon shadowFilter templeGem templeGem2"></div>'+me.favordesc2+'</div>'):'')+
+					(me.favordesc3?('<div class="templeEffect templeEffect3"><div class="usesIcon shadowFilter templeGem templeGem3"></div>'+me.favordesc3+'</div>'):'')+
+					(me.descAfter?('<div class="templeEffect">'+me.descAfter+'</div>'):'')+
+					(me.quote?('<q>'+me.quote+'</q>'):'')+
+					'</div></div>';
+				}else{
+					var str='<div style="padding:8px 4px;min-width:350px;" id="tooltipGod">'+
+					'<div class="icon" style="float:left;margin-left:-8px;margin-top:-8px;background-position:'+(-me.icon[0]*48)+'px '+(-me.icon[1]*48)+'px;"></div>'+
+					'<div class="name">'+me.name+'</div>'+
+					'<div class="line"></div><div class="description"><div style="margin:6px 0px;font-weight:bold;">'+loc("Effects:")+'</div>'+
 					(me.descBefore?('<div class="templeEffect">'+me.descBefore+'</div>'):'')+
 					(me.desc1?('<div class="templeEffect templeEffect1"><div class="usesIcon shadowFilter templeGem templeGem1"></div>'+me.desc1+'</div>'):'')+
 					(me.desc2?('<div class="templeEffect templeEffect2"><div class="usesIcon shadowFilter templeGem templeGem2"></div>'+me.desc2+'</div>'):'')+
 					(me.desc3?('<div class="templeEffect templeEffect3"><div class="usesIcon shadowFilter templeGem templeGem3"></div>'+me.desc3+'</div>'):'')+
 					(me.descAfter?('<div class="templeEffect">'+me.descAfter+'</div>'):'')+
 					(me.quote?('<q>'+me.quote+'</q>'):'')+
-				'</div></div>';
+					'</div></div>';
+				}
+				
 				return str;
 			};
 		}
@@ -167,26 +223,50 @@ M.launch=function()
 					if (Game.hasAura('Supreme Intellect')) slot=Math.max(0,slot-1);
 					me.icon=me.icon||[0,0];
 				}
-				var str='<div style="padding:8px 4px;min-width:350px;" id="tooltipPantheonSlot">'+
-				(M.slot[id]!=-1?(
-					'<div class="name templeEffect" style="margin-bottom:12px;"><div class="usesIcon shadowFilter templeGem templeGem'+(parseInt(id)+1)+'"></div>'+loc(M.slotNames[id]+" slot")+'</div>'+
-					'<div class="icon" style="float:left;margin-left:-8px;margin-top:-8px;background-position:'+(-me.icon[0]*48)+'px '+(-me.icon[1]*48)+'px;"></div>'+
-					'<div class="name">'+me.name+'</div>'+
-					'<div class="line"></div><div class="description"><div style="margin:6px 0px;font-weight:bold;">'+loc("Effects:")+'</div>'+
-						(me.activeDescFunc?('<div class="templeEffect templeEffectOn" style="padding:8px 4px;text-align:center;">'+me.activeDescFunc()+'</div>'):'')+
-						(me.descBefore?('<div class="templeEffect">'+me.descBefore+'</div>'):'')+
-						(me.desc1?('<div class="templeEffect templeEffect1'+(slot==0?' templeEffectOn':'')+'"><div class="usesIcon shadowFilter templeGem templeGem1"></div>'+me.desc1+'</div>'):'')+
-						(me.desc2?('<div class="templeEffect templeEffect2'+(slot==1?' templeEffectOn':'')+'"><div class="usesIcon shadowFilter templeGem templeGem2"></div>'+me.desc2+'</div>'):'')+
-						(me.desc3?('<div class="templeEffect templeEffect3'+(slot==2?' templeEffectOn':'')+'"><div class="usesIcon shadowFilter templeGem templeGem3"></div>'+me.desc3+'</div>'):'')+
-						(me.descAfter?('<div class="templeEffect">'+me.descAfter+'</div>'):'')+
-						(me.quote?('<q>'+me.quote+'</q>'):'')+
-					'</div>'
-				):
-				('<div class="name templeEffect"><div class="usesIcon shadowFilter templeGem templeGem'+(parseInt(id)+1)+'"></div>'+loc(M.slotNames[id]+" slot")+' ('+loc("empty")+')</div><div class="line"></div><div class="description">'+
-				((M.slotHovered==id && M.dragging)?loc("Release to assign %1 to this slot.",'<b>'+M.dragging.name+'</b>'):loc("Drag a spirit onto this slot to assign it."))+
-				'</div>')
-				)+
-				'</div>';
+				if (Game.favoredGods.includes(id)){
+					var str='<div style="padding:8px 4px;min-width:350px;" id="tooltipPantheonSlot">'+
+					(M.slot[id]!=-1?(
+						'<div class="name templeEffect" style="margin-bottom:12px;"><div class="usesIcon shadowFilter templeGem templeGem'+(parseInt(id)+1)+'"></div>'+loc(M.slotNames[id]+" slot")+'</div>'+
+						'<div class="icon" style="float:left;margin-left:-8px;margin-top:-8px;background-position:'+(-me.icon[0]*48)+'px '+(-me.icon[1]*48)+'px;"></div>'+
+						'<div class="icon" style="float:left;margin-left:-52px;margin-top:-8px;background-position:'+(-30*48)+'px '+(-11*48)+'px;"></div>'+
+						'<div class="name">'+me.name+'</div>'+
+						'<div class="line"></div><div class="description"><div style="margin:6px 0px;font-weight:bold;">'+loc("Effects:")+'</div>'+
+							(me.activeDescFunc?('<div class="templeEffect templeEffectOn" style="padding:8px 4px;text-align:center;">'+me.activeDescFunc()+'</div>'):'')+
+							(me.descBefore?('<div class="templeEffect">'+me.descBefore+'</div>'):'')+
+							(me.favordesc1?('<div class="templeEffect templeEffect1'+(slot==0?' templeEffectOn':'')+'"><div class="usesIcon shadowFilter templeGem templeGem1"></div>'+me.favordesc1+'</div>'):'')+
+							(me.favordesc2?('<div class="templeEffect templeEffect2'+(slot==1?' templeEffectOn':'')+'"><div class="usesIcon shadowFilter templeGem templeGem2"></div>'+me.favordesc2+'</div>'):'')+
+							(me.favordesc3?('<div class="templeEffect templeEffect3'+(slot==2?' templeEffectOn':'')+'"><div class="usesIcon shadowFilter templeGem templeGem3"></div>'+me.favordesc3+'</div>'):'')+
+							(me.descAfter?('<div class="templeEffect">'+me.descAfter+'</div>'):'')+
+							(me.quote?('<q>'+me.quote+'</q>'):'')+
+						'</div>'
+					):
+					('<div class="name templeEffect"><div class="usesIcon shadowFilter templeGem templeGem'+(parseInt(id)+1)+'"></div>'+loc(M.slotNames[id]+" slot")+' ('+loc("empty")+')</div><div class="line"></div><div class="description">'+
+					((M.slotHovered==id && M.dragging)?loc("Release to assign %1 to this slot.",'<b>'+M.dragging.name+'</b>'):loc("Drag a spirit onto this slot to assign it."))+
+					'</div>')
+					)+
+					'</div>';
+				}else{
+					var str='<div style="padding:8px 4px;min-width:350px;" id="tooltipPantheonSlot">'+
+					(M.slot[id]!=-1?(
+						'<div class="name templeEffect" style="margin-bottom:12px;"><div class="usesIcon shadowFilter templeGem templeGem'+(parseInt(id)+1)+'"></div>'+loc(M.slotNames[id]+" slot")+'</div>'+
+						'<div class="icon" style="float:left;margin-left:-8px;margin-top:-8px;background-position:'+(-me.icon[0]*48)+'px '+(-me.icon[1]*48)+'px;"></div>'+
+						'<div class="name">'+me.name+'</div>'+
+						'<div class="line"></div><div class="description"><div style="margin:6px 0px;font-weight:bold;">'+loc("Effects:")+'</div>'+
+							(me.activeDescFunc?('<div class="templeEffect templeEffectOn" style="padding:8px 4px;text-align:center;">'+me.activeDescFunc()+'</div>'):'')+
+							(me.descBefore?('<div class="templeEffect">'+me.descBefore+'</div>'):'')+
+							(me.desc1?('<div class="templeEffect templeEffect1'+(slot==0?' templeEffectOn':'')+'"><div class="usesIcon shadowFilter templeGem templeGem1"></div>'+me.desc1+'</div>'):'')+
+							(me.desc2?('<div class="templeEffect templeEffect2'+(slot==1?' templeEffectOn':'')+'"><div class="usesIcon shadowFilter templeGem templeGem2"></div>'+me.desc2+'</div>'):'')+
+							(me.desc3?('<div class="templeEffect templeEffect3'+(slot==2?' templeEffectOn':'')+'"><div class="usesIcon shadowFilter templeGem templeGem3"></div>'+me.desc3+'</div>'):'')+
+							(me.descAfter?('<div class="templeEffect">'+me.descAfter+'</div>'):'')+
+							(me.quote?('<q>'+me.quote+'</q>'):'')+
+						'</div>'
+					):
+					('<div class="name templeEffect"><div class="usesIcon shadowFilter templeGem templeGem'+(parseInt(id)+1)+'"></div>'+loc(M.slotNames[id]+" slot")+' ('+loc("empty")+')</div><div class="line"></div><div class="description">'+
+					((M.slotHovered==id && M.dragging)?loc("Release to assign %1 to this slot.",'<b>'+M.dragging.name+'</b>'):loc("Drag a spirit onto this slot to assign it."))+
+					'</div>')
+					)+
+					'</div>';
+				}
 				return str;
 			};
 		}
@@ -390,6 +470,7 @@ M.launch=function()
 				var me=M.gods[i];
 				var icon=me.icon||[0,0];
 				str+='<div class="ready templeGod templeGod'+(me.id%4)+' titleFont" id="templeGod'+me.id+'" '+Game.getDynamicTooltip('Game.ObjectsById['+M.parent.id+'].minigame.godTooltip('+me.id+')','this')+'><div class="usesIcon shadowFilter templeIcon" style="background-position:'+(-icon[0]*48)+'px '+(-icon[1]*48)+'px;"></div><div class="templeSlotDrag" id="templeGodDrag'+me.id+'"></div></div>';
+				if (Game.favoredGods.includes(i)) str+='<div class="ready templeGod templeGod'+(me.id%4)+' titleFont" id="favortempleGod'+me.id+'" '+Game.getDynamicTooltip('Game.ObjectsById['+M.parent.id+'].minigame.godTooltip('+me.id+')','this')+'><div class="usesIcon shadowFilter templeIcon" style="background-position:'+(-30*48)+'px '+(-11*48)+'px;"></div><div class="templeSlotDrag" id="favortempleGodDrag'+me.id+'"></div></div>';
 				str+='<div class="templeGodPlaceholder" id="templeGodPlaceholder'+me.id+'"></div>';
 			}//<div class="usesIcon shadowFilter templeGem templeGem'+(me.id%3+1)+'"></div>
 			str+='</div>';
@@ -479,9 +560,9 @@ M.launch=function()
 	M.logic=function()
 	{
 		//run each frame
-		var t=1000*60*60;
-		if (M.swaps==0) t=1000*60*60*16;
-		else if (M.swaps==1) t=1000*60*60*4;
+		var t=1000*60*15;
+		if (M.swaps==0) t=1000*60*60*4;
+		else if (M.swaps==1) t=1000*60*60;
 		var t2=M.swapT+t-Date.now();
 		if (t2<=0 && M.swaps<3) {M.swaps++;M.swapT=Date.now();}
 		M.lastSwapT++;
@@ -507,6 +588,7 @@ M.launch=function()
 		else if (M.swaps==1) t=1000*60*60*4;
 		var t2=M.swapT+t-Date.now();
 		if (Game.drawT%5==0) M.swapsL.innerHTML=loc("Worship swaps: %1",'<span class="titleFont" style="color:'+(M.swaps>0?'#fff':'#c00')+';">'+M.swaps+'/'+(3)+'</span>')+((M.swaps<3)?' ('+loc("next in %1",Game.sayTime((t2/1000+1)*Game.fps,-1))+')':'');
+
 	}
 	M.init(l('rowSpecial'+M.parent.id));
 }
