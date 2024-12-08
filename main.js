@@ -12654,10 +12654,10 @@ Game.Launch=function()
 		new Game.Upgrade('Memorization',loc("Each prestige point <b>greatly increases research speed</b>")+'<q>You would think that by now you would have remembered at least SOME of your notes!</q>',1300000,[34,0]);Game.last.pool='prestige';Game.last.parents=['Persistent memory','Genius accounting'];
 		new Game.Upgrade('The book of Lot a',loc("This evil book grants 10% extra Cps, hence the name of <b>Lot a</b> cookies")+'</div><q>This acronym seems a little off. Hmm</q>',6,[24,19],function(){Game.SetResearch('Rituals');Game.storeToRefresh=1;});Game.last.pool='tech';
 		new Game.Upgrade('Rituals',loc("Grants a further 10% extra Cps")+'</div><q>Further research into the book of lot a has uncovered rituals involving cookies. Lots of them</q>',6,[25,19],function(){Game.SetResearch('Lord of the Abyss');Game.storeToRefresh=1;});Game.last.pool='tech';
-		new Game.Upgrade('Lord of the Abyss',loc("Learn how to summon The Lord of the Abyss")+'<div class="warning">'+loc("This is your final warning. This will have some undesired consequences!"),6,[26,19],function(){Game.storeToRefresh=1;Game.Win('Lord of the abyss');Game.gainBuff('Lord Of the Abyss',24*60*60,6);Game.Unlock('Rewind');});Game.last.pool='tech';
+		new Game.Upgrade('Lord of the Abyss',loc("Learn how to summon The Lord of the Abyss")+'<div class="warning">'+loc("This is your final warning. This will have some undesired consequences!"),6,[26,19],function(){Game.storeToRefresh=1;Game.Win('Lord of the abyss');Game.gainBuff('Lord Of the Abyss',8*60*60,6);Game.Unlock('Rewind');});Game.last.pool='tech';
 		Game.RequiresConfirmation(Game.last,'<div class="block">'+loc("<b>Warning:</b> purchasing this will have unexpected, and certainly undesirable results!<br><small>It's all downhill from here. You have been warned!</small><br><br>Purchase anyway?")+'</div>');
 		order=51000;
-		new Game.Upgrade('Rewind',loc("Fix the mistakes you once made. Prevent yourself from the past from summoning the Lord of the Abyss.")+'<div class="warning">'+loc("Undoing the mistake of the Lord of the Abyss, will grant a huge clot, removing all buffs, and will drain all your cookies! Use with caution"),6,[25,19],function(){Game.storeToRefresh=1;Game.Win('Rewind');Game.killBuffs();Game.gainBuff('clot',12*60*60,0.5);Game.cookies=0;});Game.last.pool='toggle';
+		new Game.Upgrade('Rewind',loc("Fix the mistakes you once made. Prevent yourself from the past from summoning the Lord of the Abyss.")+'<div class="warning">'+loc("Undoing the mistake of the Lord of the Abyss, will grant a huge clot, removing all buffs, and will drain all your cookies! Use with caution"),6,[25,19],function(){Game.storeToRefresh=1;Game.Win('Rewind');Game.killBuffs();Game.gainBuff('clot',3*60*60,0.5);Game.cookies=0;});Game.last.pool='toggle';
 		Game.RequiresConfirmation(Game.last,'<div class="block">'+loc("<b>Warning:</b> purchasing this will have unreversable, and potentially undesirable results!<br><br>Purchase anyway?")+'</div>');
 		// new Game.Upgrade('Multi Legacy',loc("Your Prestiege level</b> also gives you an extra permanent <b>+0.5% CpS</b> per level.")+'<q>We\'ve all been waiting for you. Again</q>',1,[21,6]);Game.last.pool='prestige';Game.last.parents=[];
 
@@ -15061,7 +15061,7 @@ Game.Launch=function()
 				Game.Win('Stalling');
 				Game.lumps-=moni;
 				if (l('specialPic')){var rect=l('specialPic').getBounds();Game.SparkleAt((rect.left+rect.right)/2,(rect.top+rect.bottom)/2)+32-TopBarOffset;}
-				Game.gainBuff('Lord Of the Abyss',8*60*60,6)
+				Game.gainBuff('Lord Of the Abyss',3*60*60,6)
 			}
 				
 			Game.ToggleSpecialMenu(1);
@@ -15310,9 +15310,9 @@ Game.Launch=function()
 							'<div style="display:table-cell;vertical-align:middle;">'+loc("Sacrifce")+'<br><p style="font-size:55%">(price will increase based on the countdown timer)</p></div>'+
 							'<div style="display:table-cell;vertical-align:middle;padding:4px 12px;">|</div>';
 						if (Game.lumps>=moni){
-							str+='<div style="display:table-cell;vertical-align:middle;font-size:65%;">'+loc("extend the timer by 8 hours by sacrificing "+'<div>'+loc(moni+" Lump(s)")+'</div>')+'</div>';
+							str+='<div style="display:table-cell;vertical-align:middle;font-size:65%;">'+loc("extend the timer by 3 hours by sacrificing "+'<div>'+loc(moni+" Lump(s)")+'</div>')+'</div>';
 						}else{
-							str+='<div style="display:table-cell;vertical-align:middle;font-size:65%;">'+loc("extend the timer by 8 hours by sacrificing "+'<div style="color:#777;">'+loc(moni+" Lump(s)")+'</div>')+'</div>';
+							str+='<div style="display:table-cell;vertical-align:middle;font-size:65%;">'+loc("extend the timer by 3 hours by sacrificing "+'<div style="color:#777;">'+loc(moni+" Lump(s)")+'</div>')+'</div>';
 						}
 							
 						str+='</a></div>';
