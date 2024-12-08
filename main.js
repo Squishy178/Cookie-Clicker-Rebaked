@@ -1354,7 +1354,7 @@ Game.Launch=function()
 	
 	Game.updateLog+=
 	'</div><div class="subsection update">'+
-	'<div class="title">13/11/2024 - The Lord of the Abyss!</div>'+
+	'<div class="title">8/12/2024 - The Lord of the Abyss!</div>'+
 	'<div class="listing">&bull; Added the Lord of the Abyss! This mysterious being can be summoned. This </div>'+
 	'<div class="listing">&bull; Added a few more achievements and upgrades</div>'+
 	'<div class="listing">&bull; Fixed the Funny number shadow achievement not being obtained properly</div>'+
