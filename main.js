@@ -14459,7 +14459,7 @@ Game.Launch=function()
 		{
 			return {
 				name:'Lord Of the Abyss',
-				desc:loc("CPS is "+pow+" times more powerful. lasts 24 hours. But BEWARE! Once this timer runs out, you will automatically ascend without consent. Increase this timer sacrificing cookies and buildings"),
+				desc:loc("CPS is "+pow+" times more powerful. lasts 8 hours. But BEWARE! Once this timer runs out, you will automatically ascend without consent. Increase this timer sacrificing cookies and buildings"),
 				icon:[26,19],
 				time:time*Game.fps,
 				power:pow,
