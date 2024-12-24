@@ -291,9 +291,9 @@ M.launch=function()
 		M.offices=[
 			{name:loc("Credit garage"),icon:[0,33],cost:[100,2],desc:EN?"This is your starting office.":loc("This is your office.")+'<br>'+loc("Upgrading will grant you:")+'<br><b><!--&bull; '+loc("+1 opportunity slot")+'<br>-->&bull; '+loc("+%1 warehouse space for all goods",25)+'</b>'},
 			{name:loc("Tiny bank"),icon:[9,33],cost:[200,4],desc:loc("This is your office.")+'<br>'+loc("Upgrading will grant you:")+'<br><b>&bull; '+loc("+1 loan slot")+'<br>&bull; '+loc("+%1 warehouse space for all goods",50)+'</b>'},
-			{name:loc("Loaning company"),icon:[10,33],cost:[350,8],desc:loc("This is your office.")+'<br>'+loc("Upgrading will grant you:")+'<br><!--<b>&bull; '+loc("+1 opportunity slot")+'<br>-->&bull; '+loc("+%1 warehouse space for all goods",75)+'</b>'},
-			{name:loc("Finance headquarters"),icon:[11,33],cost:[500,10],desc:loc("This is your office.")+'<br>'+loc("Upgrading will grant you:")+'<br><b>&bull; '+loc("+1 loan slot")+'<br>&bull; '+loc("+%1 warehouse space for all goods",100)+'</b>'},
-			{name:loc("International exchange"),icon:[12,33],cost:[700,12],desc:loc("This is your office.")+'<br>'+loc("Upgrading will grant you:")+'<br><b>&bull; '+loc("+1 loan slot")+'<br><!--&bull; '+loc("+1 opportunity slot")+'<br>-->&bull; '+loc("+%1% base warehouse space for all goods",50)+'</b>'},
+			{name:loc("Loaning company"),icon:[10,33],cost:[400,6],desc:loc("This is your office.")+'<br>'+loc("Upgrading will grant you:")+'<br><!--<b>&bull; '+loc("+1 opportunity slot")+'<br>-->&bull; '+loc("+%1 warehouse space for all goods",75)+'</b>'},
+			{name:loc("Finance headquarters"),icon:[11,33],cost:[600,8],desc:loc("This is your office.")+'<br>'+loc("Upgrading will grant you:")+'<br><b>&bull; '+loc("+1 loan slot")+'<br>&bull; '+loc("+%1 warehouse space for all goods",100)+'</b>'},
+			{name:loc("International exchange"),icon:[12,33],cost:[800,10],desc:loc("This is your office.")+'<br>'+loc("Upgrading will grant you:")+'<br><b>&bull; '+loc("+1 loan slot")+'<br><!--&bull; '+loc("+1 opportunity slot")+'<br>-->&bull; '+loc("+%1% base warehouse space for all goods",50)+'</b>'},
 			{name:loc("Palace of Greed"),icon:[18,33],cost:0,desc:loc("This is your office.")+'<br>'+loc("It is fully upgraded. Its lavish interiors, spanning across innumerable floors, are host to many a decadent party, owing to your nigh-unfathomable wealth.")},
 		];
 		
@@ -310,8 +310,8 @@ M.launch=function()
 				'</div>'+
 				(me.cost?('<div class="line"></div><div style="font-size:11px;padding-left:24px;position:relative;">'+
 					'<div id="bankOfficeIcon" class="icon" style="position:absolute;left:0px;top:6px;pointer-events:none;display:inline-block;transform:scale(0.5);margin:-16px -18px -16px -14px;vertical-align:middle;background-position:'+(-11*48)+'px '+(-0*48)+'px;"></div>'+
-					loc("Upgrading will cost you %1.",'<b class="'+(Game.Objects['Cursor'].amount>=me.cost[0]?'green':'red')+'">'+me.cost[0]+' '+Game.Objects['Cursor'].plural+'</b>')+'<br>'+
-					loc("Upgrading requires %1.",'<b class="'+(Game.Objects['Cursor'].level>=me.cost[1]?'green':'red')+'">'+loc("Level %1 %2",[me.cost[1],Game.Objects['Cursor'].plural])+'</b>')+
+					loc("Upgrading will cost you %1.",'<b class="'+(Game.Objects['Bank'].amount>=me.cost[0]?'green':'red')+'">'+me.cost[0]+' '+Game.Objects['Bank'].plural+'</b>')+'<br>'+
+					loc("Upgrading requires %1.",'<b class="'+(Game.Objects['Bank'].level>=me.cost[1]?'green':'red')+'">'+loc("Level %1 %2",[me.cost[1],Game.Objects['Bank'].plural])+'</b>')+
 				'</div>'):'')+
 				'</div>';
 				return str;
@@ -347,9 +347,9 @@ M.launch=function()
 		
 		M.loanTypes=[
 			//name, mult, duration, payback mult, duration, downpayment (as % of bank), quote
-			[loc("a modest loan"),1.5,60*2,0.25,60*4,0.2,loc("Buy that vintage car you've always wanted. Just pay us back.")],
-			[loc("a pawnshop loan"),2,0.67,0.1,40,0.4,loc("Bad credit? No problem. It's your money, and you need it now.")],
-			[loc("a retirement loan"),1.2,60*24*2,0.8,60*24*5,0.5,loc("Finance your next house, boat, spouse, etc. You've earned it.")],
+			[loc("a modest loan"),3,60*2,0.75,60*4,0.2,loc("Buy that vintage car you've always wanted. Just pay us back.")],
+			[loc("a pawnshop loan"),6,0.67,0.25,40,0.4,loc("Bad credit? No problem. It's your money, and you need it now.")],
+			[loc("a retirement loan"),1.5,60*24*2,0.8,60*24*5,0.5,loc("Finance your next house, boat, spouse, etc. You've earned it.")],
 		];
 		M.loanTooltip=function(id)
 		{
@@ -541,9 +541,9 @@ M.launch=function()
 		
 		AddEvent(l('bankOfficeUpgrade'),'click',function(e){
 			var me=M.offices[M.officeLevel];
-			if (me.cost && Game.Objects['Cursor'].amount>=me.cost[0] && Game.Objects['Cursor'].level>=me.cost[1])
+			if (me.cost && Game.Objects['Bank'].amount>=me.cost[0] && Game.Objects['Bank'].level>=me.cost[1])
 			{
-				Game.Objects['Cursor'].sacrifice(me.cost[0]);
+				Game.Objects['Bank'].sacrifice(me.cost[0]);
 				M.officeLevel+=1;
 				if (M.officeLevel>=M.offices.length-1) Game.Win('Pyramid scheme');
 				PlaySound('snd/cashIn2.mp3',0.6);
@@ -1075,12 +1075,12 @@ M.launch=function()
 			var office=M.offices[M.officeLevel];
 			l('bankOfficeIcon').style.backgroundPosition=(-office.icon[0]*48)+'px '+(-office.icon[1]*48)+'px';
 			l('bankOfficeName').innerHTML=office.name;
-			l('bankOfficeUpgrade').innerHTML=EN?'Upgrade ('+office.cost[0]+' cursors)':loc("Upgrade for %1",office.cost[0]+' '+Game.Objects['Cursor'].plural);
+			l('bankOfficeUpgrade').innerHTML=EN?'Upgrade ('+office.cost[0]+' banks)':loc("Upgrade for %1",office.cost[0]+' '+Game.Objects['Bank'].plural);
 			if (!office.cost) l('bankOfficeUpgrade').style.display='none';
 			else
 			{
 				l('bankOfficeUpgrade').style.removeProperty('display');
-				if (Game.Objects['Cursor'].amount>=office.cost[0] && Game.Objects['Cursor'].level>=office.cost[1]) l('bankOfficeUpgrade').classList.remove('bankButtonOff');
+				if (Game.Objects['Bank'].amount>=office.cost[0] && Game.Objects['Bank'].level>=office.cost[1]) l('bankOfficeUpgrade').classList.remove('bankButtonOff');
 				else l('bankOfficeUpgrade').classList.add('bankButtonOff');
 			}
 			l('bankBrokersText').innerHTML=EN?(M.brokers==0?'no brokers':M.brokers==1?'1 broker':(M.brokers+' brokers')):(loc("Brokers:")+' '+M.brokers);

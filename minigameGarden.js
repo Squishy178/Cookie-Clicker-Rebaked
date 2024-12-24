@@ -67,7 +67,7 @@ M.launch=function()
 				ageTick:2,
 				ageTickR:1.5,
 				mature:40,
-				children:['clover','goldenClover','shimmerlily'],
+				children:['clover','goldenClover','shimmerlily','instabud'],
 				effsStr:'<div class="green">&bull; '+loc("golden cookie gains")+' +1%</div><div class="green">&bull; '+loc("golden cookie effect duration")+' +0.1%</div>',
 				q:'An ancient staple crop, famed for its golden sheen. Was once used to bake birthday cakes for kings and queens of old.',
 				
@@ -135,8 +135,8 @@ M.launch=function()
 				ageTick:1,
 				ageTickR:1,
 				mature:50,
-				children:['queenbeet'],
-				effsStr:'<div class="green">&bull; '+loc("CpS")+' +1%</div><div class="green">&bull;,</div>',
+				children:['queenbeet','instabud'],
+				effsStr:'<div class="green">&bull; '+loc("CpS")+' +1%</div>',
 				q:'A favorite among cooks, this large berry has a crunchy brown exterior and a creamy red center. Excellent in pies or chicken stews.',
 				
 			},
@@ -528,6 +528,26 @@ M.launch=function()
 				q:'This puffball mushroom contains sugary spores, but it never seems to mature to bursting on its own. Surrounding plants under its influence have a very slow metabolism, reducing their effects but lengthening their lifespan.',
 				
 			},
+			'instabud':{
+				name:'Instabud',
+				fungus:false,
+				icon:36,
+				cost:30,
+				costM:50000,
+				ageTick:5,
+				ageTickR:1,
+				mature:35,
+				children:[],
+				effsStr:'<div class="green">&bull; Upon harvest, instantly activate a tick</div><div class="red">&bull; Grants no cookies upon harvest</div>',
+				q:'A favorite of the younger generations. Always wanting to grow up, only to realize how much they miss being a kid',
+				onHarvest:function(x,y,age)
+				{
+					if (age>=this.mature){
+						M.nextStep=0;
+						Game.Popup('(Instabud)<br>Warped ahead 1 tick!',Game.mouseX,Game.mouseY);
+					};
+				},
+			},
 		};
 		M.plantsById=[];var n=0;
 		for (var i in M.plants)
@@ -616,7 +636,7 @@ M.launch=function()
 			if (neighsM['greenRot']>=1 && neighsM['brownMold']>=1) muts.push(['keenmoss',0.1]);
 				if (neighsM['keenmoss']>=1 && neighs['keenmoss']<2) muts.push(['keenmoss',0.05]);
 			if (neighsM['chocoroot']>=1 && neighsM['bakeberry']>=1) muts.push(['queenbeet',0.01]);
-				if (neighsM['queenbeet']>=8) muts.push(['queenbeetLump',0.001]);
+				if (neighsM['queenbeet']>=4) muts.push(['queenbeetLump',0.002]);
 			if (neighsM['queenbeet']>=2) muts.push(['duketater',0.001]);
 			
 				if (neighsM['crumbspore']>=1 && neighs['crumbspore']<=1) muts.push(['crumbspore',0.07]);
@@ -639,6 +659,8 @@ M.launch=function()
 			if (neighsM['bakerWheat']>=1 && neighsM['whiteChocoroot']>=1) muts.push(['tidygrass',0.002]);
 			if (neighsM['tidygrass']>=3 && neighsM['elderwort']>=3) muts.push(['everdaisy',0.002]);
 			if (neighsM['elderwort']>=1 && neighsM['crumbspore']>=1) muts.push(['ichorpuff',0.002]);
+			if (neighsM['bakeberry']>=1 && neighsM['gildmillet']>=1) muts.push(['instabud',0.01]);
+			if (neighsM['queenbeet']>=1 && neighsM['bakerWheat']>=1) muts.push(['instabud',0.005]);
 			
 			return muts;
 		}
@@ -838,32 +860,32 @@ M.launch=function()
 			'fertilizer':{
 				name:loc("Fertilizer"),
 				icon:1,
-				tick:3,
-				effMult:0.75,
-				weedMult:1.2,
+				tick:2,
+				effMult:0.5,
+				weedMult:1.75,
 				req:50,
-				effsStr:'<div class="gray">&bull; '+loc("tick every %1",'<b>'+Game.sayTime(3*60*Game.fps)+'</b>')+'</div><div class="red">&bull; '+loc("passive plant effects")+' <b>-25%</b></div><div class="red">&bull; '+loc("weed growth")+' <b>+20%</b></div>',
-				q:loc("Soil with a healthy helping of fresh manure. Plants grow faster but are less efficient."),
+				effsStr:'<div class="gray">&bull; '+loc("tick every %1",'<b>'+Game.sayTime(2*60*Game.fps)+'</b>')+'</div><div class="red">&bull; '+loc("passive plant effects")+' <b>-50%</b></div><div class="red">&bull; '+loc("weed growth")+' <b>+75%</b></div>',
+				q:loc("Soil with a healthy helping of fresh manure. Plants grow faster but are much less efficient."),
 			},
 			'clay':{
 				name:loc("Clay"),
 				icon:2,
 				tick:15,
-				effMult:1.25,
+				effMult:1.5,
 				weedMult:1,
 				req:100,
-				effsStr:'<div class="gray">&bull; '+loc("tick every %1",'<b>'+Game.sayTime(15*60*Game.fps)+'</b>')+'</div><div class="green">&bull; '+loc("passive plant effects")+' <b>+25%</b></div>',
+				effsStr:'<div class="gray">&bull; '+loc("tick every %1",'<b>'+Game.sayTime(15*60*Game.fps)+'</b>')+'</div><div class="green">&bull; '+loc("passive plant effects")+' <b>+50%</b></div>',
 				q:loc("Rich soil with very good water retention. Plants grow slower but are more efficient."),
 			},
 			'pebbles':{
 				name:loc("Pebbles"),
 				icon:3,
-				tick:4,
-				effMult:0.25,
+				tick:10,
+				effMult:0,
 				weedMult:0.1,
 				req:200,
-				effsStr:'<div class="gray">&bull; '+loc("tick every %1",'<b>'+Game.sayTime(4*60*Game.fps)+'</b>')+'</div><div class="red">&bull; '+loc("passive plant effects")+' <b>-75%</b></div><div class="green">&bull; '+loc("<b>%1% chance</b> of collecting seeds automatically when plants expire",50)+'</div><div class="green">&bull; '+loc("weed growth")+' <b>-90%</b></div>',
-				q:loc("Dry soil made of small rocks tightly packed together. Not very conducive to plant health, but whatever falls off your crops will be easy to retrieve.<br>Useful if you're one of those farmers who just want to find new seeds without having to tend their garden too much."),
+				effsStr:'<div class="gray">&bull; '+loc("tick every %1",'<b>'+Game.sayTime(10*60*Game.fps)+'</b>')+'</div><div class="red">&bull; '+loc("passive plant effects")+' <b>-100%</b></div><div class="green">&bull; '+loc("<b>%1% chance</b> of collecting seeds automatically when plants expire",50)+'</div><div class="green">&bull; '+loc("weed growth")+' <b>-90%</b></div><div class="green">&bull; '+loc("plants spread and mutate <b>50% more</b>")+'</div>',
+				q:loc("Dry soil made of small rocks tightly packed together. Not conducive to plant health at all, but whatever falls off your crops will be easy to retrieve.<br>Useful if you're one of those farmers who just want to find new seeds without having to tend their garden too much."),
 			},
 			'woodchips':{
 				name:loc("Wood chips"),
@@ -1068,7 +1090,12 @@ M.launch=function()
 				}
 				children+='</div>';
 			}
-			var dragonBoost=1/(1+0.05*Game.auraMult('Supreme Intellect'));
+			if (Game.hasBuff('Lord Of the Abyss')){
+				var dragonBoost=1/3*(1+0.05*Game.auraMult('Supreme Intellect'));
+			}else{
+				var dragonBoost=1/(1+0.05*Game.auraMult('Supreme Intellect'));
+			}
+			
 			return '<div class="description">'+
 						(!me.immortal?('<div style="margin:6px 0px;font-size:11px;"><b>'+loc("Average lifespan:")+'</b> '+Game.sayTime(((100/(me.ageTick+me.ageTickR/2))*dragonBoost*M.stepT)*30,-1)+' <small>('+loc("%1 tick",LBeautify(Math.ceil((100/((me.ageTick+me.ageTickR/2)/dragonBoost))*(1))))+')</small></div>'):'')+
 						'<div style="margin:6px 0px;font-size:11px;"><b>'+loc("Average maturation:")+'</b> '+Game.sayTime(((100/((me.ageTick+me.ageTickR/2)))*(me.mature/100)*dragonBoost*M.stepT)*30,-1)+' <small>('+loc("%1 tick",LBeautify(Math.ceil((100/((me.ageTick+me.ageTickR/2)/dragonBoost))*(me.mature/100))))+')</small></div>'+
@@ -1470,7 +1497,7 @@ M.launch=function()
 		{
 			var harvested=0;
 			for (var i=0;i<2;i++)//we do it twice to take care of whatever spawns on kill
-			{
+			{                      //That is actually brilliant! Exactly what I would have done  -Squishy
 				for (var y=0;y<6;y++)
 				{
 					for (var x=0;x<6;x++)
@@ -1509,7 +1536,7 @@ M.launch=function()
 					M.harvestsTotal++;
 					if (M.harvestsTotal>=100) Game.Win('Botany enthusiast');
 					if (M.harvestsTotal>=1000) Game.Win('Green, aching thumb');
-					if (!me.weed || me.weed==undefined){
+					if ((!me.weed || me.weed==undefined) && me=='instabud'){
 						if (me=='duketater'){
 							var moni=Game.cookiesPs*60*(2*(me.cost/3));
 						}else{
@@ -1521,6 +1548,7 @@ M.launch=function()
 							Game.Earn(moni);
 							Game.Popup('('+me.name+')<br>+'+Beautify(moni)+' cookies!',Game.mouseX,Game.mouseY);
 						}
+				
 					}
 				}
 				
@@ -1830,6 +1858,7 @@ M.launch=function()
 				
 				var loops=1;
 				if (M.soilsById[M.soil].key=='woodchips') loops=3;
+				if (M.soilsById[M.soil].key=='pebbles') loops=1.5;
 				loops=randomFloor(loops*dragonBoost);
 				loops*=M.loopsMult;
 				M.loopsMult=1;

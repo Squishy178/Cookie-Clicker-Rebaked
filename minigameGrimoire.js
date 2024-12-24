@@ -57,7 +57,6 @@ M.launch=function()
 					if (Math.random()<0.1) choices.push('cookie storm','cookie storm');
 					if (Game.BuildingsOwned>=10 && Math.random()<0.25) choices.push('building special');
 					//if (Math.random()<0.2) choices.push('clot','cursed finger','ruin cookies');
-					// if (Math.random()<1) choices=['cookie storm drop'];
 					if (Math.random()<0.001) choices.push('free sugar lump');
 					newShimmer.force=choose(choices);
 					// if (newShimmer.force=='cookie storm drop')
@@ -169,8 +168,8 @@ M.launch=function()
 			},
 			'haggler\'s charm':{
 				name:loc("Haggler's Charm"),
-				desc:loc("Upgrades are %1% cheaper for 1 minute.",5),
-				failDesc:loc("Upgrades are %1% more expensive for an hour.",5)+(EN?'<q>What\'s that spell? Loadsamoney!</q>':''),
+				desc:loc("Upgrades are %1% cheaper for 1 minute.",8),
+				failDesc:loc("Upgrades are %1% more expensive for an hour.",8)+(EN?'<q>What\'s that spell? Loadsamoney!</q>':''),
 				icon:[25,11],
 				costMin:10,
 				costPercent:0.1,
@@ -178,21 +177,21 @@ M.launch=function()
 				win:function()
 				{
 					Game.killBuff('Haggler\'s misery');
-					var buff=Game.gainBuff('haggler luck',60,5);
+					var buff=Game.gainBuff('haggler luck',60,8);
 					Game.Popup('<div style="font-size:80%;">'+loc("Upgrades are cheaper!")+'</div>',Game.mouseX,Game.mouseY);
 				},
 				fail:function()
 				{
 					Game.killBuff('Haggler\'s luck');
-					var buff=Game.gainBuff('haggler misery',60*60,5);
+					var buff=Game.gainBuff('haggler misery',60*60,8);
 					Game.Popup('<div style="font-size:80%;">'+loc("Backfire!")+'<br>'+loc("Upgrades are pricier!")+'</div>',Game.mouseX,Game.mouseY);
 					
 				},
 			},
 			'summon crafty pixies':{
 				name:loc("Summon Crafty Pixies"),
-				desc:loc("Buildings are %1% cheaper for 1 minute.",5),
-				failDesc:loc("Buildings are %1% more expensive for an hour.",5)+(EN?'<q>These pixies are very crafty, with a capital V</q>':''),
+				desc:loc("Buildings are %1% cheaper for 1 minute.",8),
+				failDesc:loc("Buildings are %1% more expensive for an hour.",8)+(EN?'<q>These pixies are very crafty, with a capital V</q>':''),
 				icon:[26,11],
 				costMin:10,
 				costPercent:0.2,
@@ -200,13 +199,13 @@ M.launch=function()
 				win:function()
 				{
 					Game.killBuff('Nasty goblins');
-					var buff=Game.gainBuff('pixie luck',60,5);
+					var buff=Game.gainBuff('pixie luck',60,8);
 					Game.Popup('<div style="font-size:80%;">'+loc("Crafty pixies")+'<br>'+loc("Buildings are cheaper!")+'</div>',Game.mouseX,Game.mouseY);
 				},
 				fail:function()
 				{
 					Game.killBuff('Crafty pixies');
-					var buff=Game.gainBuff('pixie misery',60*60,5);
+					var buff=Game.gainBuff('pixie misery',60*60,8);
 					Game.Popup('<div style="font-size:80%;">'+loc("Backfire!")+'<br>'+loc("Nasty goblins")+'<br>'+loc("Buildings are pricier!")+'</div>',Game.mouseX,Game.mouseY);
 					
 				},
