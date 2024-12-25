@@ -1354,8 +1354,8 @@ Game.Launch=function()
 	
 	Game.updateLog+=
 
-	'</div><div class="subsection update small">'+
-	'<div class="title">10/12/2024 - Challenges </div>'+
+	'</div><div class="subsection update">'+
+	'<div class="title">23/12/2024 - Challenges </div>'+
 	'<div class="listing">&bull; Added FIVE new challenges for challenge mode! I plan to add a few more later, but wanted to push this update as soon as possible</div>'+
 	'<div class="listing" style="font-size:80%;margin-left:20px;">-Alongside each of these, I added a new achievement and a heavenly upgrade for each, adding incentive for playing them.</div>'+
 	'<div class="listing">&bull; Made quite a few changes to the lord of the abyss:</div>'+

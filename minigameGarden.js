@@ -1536,7 +1536,7 @@ M.launch=function()
 					M.harvestsTotal++;
 					if (M.harvestsTotal>=100) Game.Win('Botany enthusiast');
 					if (M.harvestsTotal>=1000) Game.Win('Green, aching thumb');
-					if ((!me.weed || me.weed==undefined) && me=='instabud'){
+					if (!me.weed || !me=='instabud'){
 						if (me=='duketater'){
 							var moni=Game.cookiesPs*60*(2*(me.cost/3));
 						}else{
