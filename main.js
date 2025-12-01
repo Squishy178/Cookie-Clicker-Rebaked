@@ -1353,6 +1353,11 @@ Game.Launch=function()
 	if (!EN) Game.updateLog+='<div class="listing" style="font-weight:bold;font-style:italic;opacity:0.5;">'+loc("Note: older update notes are in English.")+'</div>';
 	
 	Game.updateLog+=
+	'</div><div class="subsection update">'+
+	'<div class="title">1/12/2025 - Back in the Swing of things </div>'+
+	'<div class="listing">&bull; Fixed Lord Of the Abyss so that it could be unlocked.</div>'+
+	'<div class="listing" style="font-size:80%;margin-left:20px;">-Oops</div>'+
+	'<div class="listing">&bull; While I did code these changes, Orteil made the base game. Thanks!</div>'+
 
 	'</div><div class="subsection update">'+
 	'<div class="title">23/12/2024 - Challenges </div>'+
@@ -1373,7 +1378,7 @@ Game.Launch=function()
 	'<div class="listing">&bull; Rebalanced Loans for the Stock market minigame.</div>'+
 	'<div class="listing" style="font-size:80%;margin-left:20px;">-Also changed the requirements for offices from cursors to banks. I believe that this makes considerably more sense.</div>'+
 	'<div class="listing" style="font-size:80%;margin-left:20px;">-Rebalanced the costs for offices as well, as the final one was previously unattainable due to the leveling changes!.</div>'+
-	'<div class="listing">&bull; While I did code these changes, Orteil made the base game. Nearly all the Credit goes to him!</div>'+
+	'<div class="listing">&bull; While I did code these changes, Orteil made the base game. Thanks!</div>'+
 
 	'</div><div class="subsection update">'+
 	'<div class="title">8/12/2024 - The Lord of the Abyss!</div>'+
@@ -1387,7 +1392,7 @@ Game.Launch=function()
 	'<div class="listing" style="font-size:80%;margin-left:20px;">-Do not worry! You will be refunded your Lumps, and plus extra for your troubles</div>'+
 	'<div class="listing">&bull; Gave buildings epic new textures when maxed out in levels. Now you can look good while baking a ton! Only grandmas and You are unaffected (for reasons that I do not have the patience to deal with)</div>'+
 	'<div class="listing">&bull; Fixed stretch time and FOTHOF bugs.</div>'+
-	'<div class="listing">&bull; While I did code these features, Orteil made the base game. Pretty much all Credit goes to him!</div>'+
+	'<div class="listing">&bull; While I did code these features, Orteil made the base game. Thanks!</div>'+
 
 
 	'</div><div class="subsection update">'+
@@ -1399,7 +1404,7 @@ Game.Launch=function()
 	'<div class="listing">&bull; Added a few more blabs because why not</div>'+
 	'<div class="listing">&bull; Did a few balance changes. Reworked Beginners Cosmic luck</div>'+
 	'<div class="listing">&bull; Temporarily paused work on minigames. I think I need more practice with javascript, and understanding this code.</div>'+
-	'<div class="listing">&bull; While I did code these changes, Orteil made the base game. 99.9% of the Credit goes to him!</div>'+
+	'<div class="listing">&bull; While I did code these changes, Orteil made the base game. Thanks!</div>'+
 
 	'</div><div class="subsection update small">'+
 	'<div class="title">05/11/2024 - A minor update: 2.054</div>'+
@@ -1407,7 +1412,7 @@ Game.Launch=function()
 	'<div class="listing">&bull; Made some slight pantheon rebalancing</div>'+
 	'<div class="listing">&bull; Started work on the Cookie cavern minigame. (minigame for mines)</div>'+
 	'<div class="listing">&bull; Javascript console efficiency buffed.</div>'+
-	'<div class="listing">&bull; While I did code these changes, Orteil made the base game. 99.92% of the Credit goes to him!</div>'+
+	'<div class="listing">&bull; While I did code these changes, Orteil made the base game. Thanks!</div>'+
 
 	'</div><div class="subsection update">'+
 	'<div class="title">05/11/2024 - Cookie clicker: Rebaked! 2.053</div>'+
@@ -1417,7 +1422,7 @@ Game.Launch=function()
 	'<div class="listing">&bull; added a 50% harvest refund for the garden. Hopefully it is now useful</div>'+
 	'<div class="listing">&bull; More content coming soon!</div>'+
 	'<div class="listing">&bull; Cookie Clicker turns 11 years old this year. Wait was this not in the previous patch notes?</div>'+
-	'<div class="listing">&bull; While I did code these changes, Orteil made the base game. 99.8% of the Credit goes to him!</div>'+
+	'<div class="listing">&bull; While I did code these changes, Orteil made the base game. Thanks!</div>'+
 
 	'</div><div class="subsection update">'+
 	'<div class="title">07/05/2023 - often imitated, never duplicated</div>'+
@@ -12794,9 +12799,9 @@ Game.Launch=function()
 		new Game.Upgrade('Heavenly energy',loc("Your now sentient clones are requesting access to some of the heavenly power you obtained previously. Do you accept?<br>Grants 2 more trillion base CPS for every You")+'<div class="warning">'+loc("Your clones are starting an uprising. Regardless, this is a terrible idea.")+'</div><q>Do not let Curiousity take the best of you...</q>',1,[17,11],function(){Game.storeToRefresh=1;});Game.last.pool='tech';
 		Game.RequiresConfirmation(Game.last,'<div class="block">'+loc("<b>Warning:</b> purchasing this will have unexpected, and potentially undesirable results!<br><small>It's all downhill from here. You have been warned!</small><br><br>Purchase anyway?")+'</div>');
 		new Game.Upgrade('Memorization',loc("Each time you ascend, your research speed <b>greatly increases</b>")+'<q>You would think that by now you would have remembered at least SOME of your notes!</q>',1300000,[34,0]);Game.last.pool='prestige';Game.last.parents=['Persistent memory','Genius accounting'];
-		new Game.Upgrade('The book of Lot a',loc("This evil book grants 10% extra Cps, hence the name of <b>Lot a</b> cookies")+'</div><q>This acronym seems a little off. Hmm</q>',6,[24,19],function(){Game.SetResearch('Rituals');Game.storeToRefresh=1;});Game.last.pool='tech';
-		new Game.Upgrade('Rituals',loc("Grants a further 10% extra Cps")+'</div><q>Further research into the book of lot a has uncovered rituals involving cookies. Lots of them</q>',6,[25,19],function(){Game.SetResearch('Lord of the Abyss');Game.storeToRefresh=1;});Game.last.pool='tech';
-		new Game.Upgrade('Lord of the Abyss',loc("Learn how to summon The Lord of the Abyss")+'<div class="warning">'+loc("This is your final warning. This will have some undesired consequences!"),6,[26,19],function(){Game.storeToRefresh=1;Game.Win('Lord of the abyss');Game.gainBuff('Lord Of the Abyss',(Game.Has('Ask for more')?10:8)*60*60,6);Game.Unlock('Rewind');});Game.last.pool='tech';
+		new Game.Upgrade('The book of Lot a',loc("This evil book grants 10% extra Cps, hence the name of <b>Lot a</b> cookies")+'</div><q>This acronym seems a little off. Hmm</q>',6,[24,19],function(){Game.Unlock('Rituals');Game.storeToRefresh=1;});Game.last.pool='tech';
+		new Game.Upgrade('Rituals',loc("Grants a further 10% extra Cps")+'</div><q>Further research into the book of lot a has uncovered rituals involving cookies. Lots of them</q>',6,[25,19],function(){Game.Unlock('Lord of the Abyss');Game.storeToRefresh=1;});Game.last.pool='tech';
+		new Game.Upgrade('Lord of the Abyss',loc("Learn how to summon The Lord of the Abyss")+'<div class="warning">'+loc("This is your final warning. This <b>will</b> have some undesired consequences!"),6,[26,19],function(){Game.storeToRefresh=1;Game.Win('Lord of the abyss');Game.gainBuff('Lord Of the Abyss',(Game.Has('Ask for more')?10:8)*60*60,6);Game.Unlock('Rewind');});Game.last.pool='tech';
 		Game.RequiresConfirmation(Game.last,'<div class="block">'+loc("<b>Warning:</b> purchasing this will have unexpected, and certainly undesirable results!<br><small>It's all downhill from here. You have been warned!</small><br><br>Purchase anyway?")+'</div>');
 		order=51000;
 		new Game.Upgrade('Rewind',loc("Fix the mistakes you once made. Prevent yourself from the past from summoning the Lord of the Abyss.")+'<div class="warning">'+loc("Undoing the mistake of the Lord of the Abyss, will grant a huge clot, removing all buffs, and will drain all your cookies! Use with caution"),6,[25,19],function(){Game.storeToRefresh=1;Game.Win('Rewind');Game.killBuffs();Game.gainBuff('clot',8*60*60,0.5);Game.cookies=0;});Game.last.pool='toggle';
@@ -17090,7 +17095,7 @@ Game.Launch=function()
 				if (Game.handmadeCookies>=1000000000000000000000000000) {Game.Win('Clickety split');Game.Unlock('Miraculite mouse');}
 				if (Game.handmadeCookies>=100000000000000000000000000000) {Game.Win('Ain\'t that a click in the head');Game.Unlock('Aetherice mouse');}
 				if (Game.handmadeCookies>=10000000000000000000000000000000) {Game.Win('What\'s not clicking');Game.Unlock('Omniplast mouse');}
-				if (Game.cookiesEarned>2000000000000000000000000000 && Game.researchT==-1 && !Game.Has('The book of Lot a') && Game.Has('Bingo center/Research facility')){Game.SetResearch('The book of Lot a');}
+				if (Game.cookiesEarned>2000000000000000000000000000){Game.Unlock('The book of Lot a');}
 				
 				
 
