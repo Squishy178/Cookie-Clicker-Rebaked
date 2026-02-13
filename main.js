@@ -1355,8 +1355,20 @@ Game.Launch=function()
 	Game.updateLog+=
 	'</div><div class="subsection update">'+
 	'<div class="title">1/12/2025 - Back in the Swing of things </div>'+
+	'<div class="listing">&bull; Pantheon Now has favored and Scorned gods</div>'+
+	'<div class="listing">&bull; Galactic Trek Minigame Completed!</div>'+
+	'<div class="listing" style="font-size:80%;margin-left:20px;">-Send Exploration ships into the vast space!</div>'+
+	'<div class="listing" style="font-size:80%;margin-left:20px;">-Gain rewards from successful expeditions!</div>'+
+	'<div class="listing" style="font-size:80%;margin-left:20px;">-Each Expedition is unique each time! Randomly generated galaxies with cookie planets!</div>'+
+	'<div class="listing">&bull; Renamed "Pre Summon" Challenge mode to "Abyssal", for more clarification</div>'+
+	'<div class="listing">&bull; F</div>'+
+	'<div class="listing">&bull; While I did code these changes, Orteil made the base game. Thanks!</div>'+
+
+	'</div><div class="subsection update">'+
+	'<div class="title">1/12/2025 - Back in the Swing of things </div>'+
 	'<div class="listing">&bull; Fixed Lord Of the Abyss so that it could be unlocked.</div>'+
 	'<div class="listing" style="font-size:80%;margin-left:20px;">-Oops</div>'+
+	'<div class="listing">&bull; Cookie Clicker is now 12 Years Old!</div>'+
 	'<div class="listing">&bull; While I did code these changes, Orteil made the base game. Thanks!</div>'+
 
 	'</div><div class="subsection update">'+
@@ -4141,7 +4153,7 @@ Game.Launch=function()
 		Game.ascensionModes={
 		0:{name:'None',dname:loc("None [ascension type]"),desc:loc("No special modifiers."),icon:[10,0]},
 		1:{name:'Born again',dname:loc("Born again [ascension type]"),desc:loc("This run will behave as if you'd just started the game from scratch. Prestige levels and heavenly upgrades will have no effect, as will sugar lumps and building levels. Perma-upgrades and minigames will be unavailable.<div class=\"line\"></div>Some achievements are only available in this mode."),icon:[2,7]},
-		2:{name:'Pre summon',dname:loc("Pre summon"),desc:loc("This run will behave as if you'd just started the game from scratch. Prestige levels and heavenly upgrades will have no effects. Perma-upgrades will be unavailable.<div class=\"line\"></div>Starts you with the Lord of the Abyss active at the very start<div class=\"line\"></div></div>Some achievements are only available in this mode."),icon:[26,19]},
+		2:{name:'Abyssal',dname:loc("Abyssal"),desc:loc("This run will behave as if you'd just started the game from scratch. Prestige levels and heavenly upgrades will have no effects. Perma-upgrades will be unavailable.<div class=\"line\"></div>Starts you with the Lord of the Abyss active at the very start<div class=\"line\"></div></div>Some achievements are only available in this mode."),icon:[26,19]},
 		3:{name:'Cyclius\'s wrath',dname:loc("Cyclius\'s wrath"),desc:loc("</div>CPS predicatably changes from -100% to 100% effectiveness over the course of 1 hour<div class=\"line\"></div></div>Some achievements are only available in this mode."),icon:[24,18]},
 		4:{name:'Golden days',dname:loc("Golden days"),desc:loc("</div>Golden cookies spawn incredibly quickly, but buildings grant half the CPS<div class=\"line\"></div></div>Some achievements are only available in this mode."),icon:[23,6]},
 		5:{name:'Speed bake',dname:loc("Speed bake"),desc:loc("This run will behave as if you'd just started the game from scratch. Prestige levels and heavenly upgrades will have no effect, as will sugar lumps and building levels. Perma-upgrades and minigames will be unavailable.<div class=\"line\"></div>Overall CPS increased by 25%. The challenge is over once you have <b>1 million</b> cookies<div class=\"line\"></div>Some achievements are only available in this mode."),icon:[8,0]},
@@ -9194,7 +9206,9 @@ Game.Launch=function()
 			Game.UnlockTiered(this);
 			if (this.amount>=Game.SpecialGrandmaUnlock && Game.Objects['Grandma'].amount>0) Game.Unlock(this.grandma.name);
 		});
-		
+		Game.last.minigameUrl='minigameTrek.js';
+		Game.last.minigameName=loc("Galactic Trek");
+
 		new Game.Object('Alchemy lab','alchemy lab|alchemy labs|transmuted|[X] primordial element mastered|[X] primordial elements mastered','Turns gold into cookies!',10,6,{base:'alchemylab',xV:16,yV:16,w:64,rows:2,x:0,y:16},200000,function(me){
 			var mult=1;
 			mult*=Game.GetTieredCpsMult(me);
@@ -14148,7 +14162,7 @@ Game.Launch=function()
 		new Game.Achievement('Watching the clock',loc("Harvest a sugar lump the minute it matures/ripens.")+'<q>Brother was waiting</q>',[29,14]);Game.last.pool='shadow'
 		new Game.Achievement('Stalling',loc("Sacrifce a sugar lump to the Lord of the Abyss to gain extra time")+'<q>Just like life, you cannot delay the inevitable</q>',[29,14]);
 		new Game.Achievement('Rewind',loc("Fix your past mistakes regarding the book of lot a.")+'<q>Perhaps it would be best if you never even opened the book</q>',[8,0]);
-		new Game.Achievement('Pre-determined fate',loc('Earn 1 quintillion cookies in the "Pre Summon" challenge mode. You have also unlocked the option to purchase the <b>Ask for more</b> Heavenly upgrade!')+'<q>Looks like an alternate universe version of yourself decided for you. Does not matter now, you made a lot of cookies!</q>',[26,19]);
+		new Game.Achievement('Pre-determined fate',loc('Earn 1 quintillion cookies in the "Abyssal" challenge mode. You have also unlocked the option to purchase the <b>Ask for more</b> Heavenly upgrade!')+'<q>Looks like an alternate universe version of yourself decided for you. Does not matter now, you made a lot of cookies!</q>',[26,19]);
 		order=410000;
 		new Game.Achievement('You did it!',loc("Obtain every other normal achievement besides this one")+'<q>Sorry this took so long</q>',[14,5]);
 		order=405000;
